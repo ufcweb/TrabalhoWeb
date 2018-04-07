@@ -5,6 +5,8 @@
  */
 package Modelo;
 
+import java.util.List;
+
 /**
  *
  * @author mathe
@@ -90,6 +92,28 @@ public class Usuario {
         }
         
     }
+    
+    public void cadastrarUsuario(Usuario usuario){
+        //Salvar com classe DAO
+    }
+    
+    public void cadastrarUsuario(List<Usuario> usuarios){
+        for(Usuario usuario:usuarios){
+            //salvar com classe DAO
+        }
+    }
+    
+    public Usuario deletarUsuario(Usuario usuario){
+        return null;
+    }
+    
+    public void editarUsuario(Usuario usuario){
+        
+    }
+    
+    
+    
+    
     
     
 }
