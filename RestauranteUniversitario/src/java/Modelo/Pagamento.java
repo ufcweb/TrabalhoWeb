@@ -10,9 +10,12 @@ package Modelo;
  * @author mathe
  */
 public class Pagamento {
+    private int ID;
     private Double precoTotal;
     private Venda venda;
+    private int vendaCE;
     private Usuario cliente;
+    private int clienteCE;
 
     public Pagamento() {
         super();
@@ -23,7 +26,7 @@ public class Pagamento {
         this.venda = venda;
         this.cliente = cliente;
     }
-
+        
     public Double getPrecoTotal() {
         return precoTotal;
     }
@@ -60,6 +63,35 @@ public class Pagamento {
             throw new IllegalArgumentException("Cliente invalido");
         }
         
+    }
+
+    public int getVendaCE() {
+        return vendaCE;
+    }
+
+    public void setVendaCE(int vendaCE) {
+        this.vendaCE = vendaCE;
+    }
+
+    public int getClienteCE() {
+        return clienteCE;
+    }
+
+    public void setClienteCE(int clienteCE) {
+        this.clienteCE = clienteCE;
+    }
+    
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
+    }
+
+    @Override
+    public String toString() {
+        return "Pagamento{" + "ID=" + ID + ", precoTotal=" + precoTotal + ", venda=" + venda + ", vendaCE=" + vendaCE + ", cliente=" + cliente + ", clienteCE=" + clienteCE + '}';
     }
     
     

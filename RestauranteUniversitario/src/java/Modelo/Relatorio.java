@@ -14,10 +14,12 @@ import java.util.Date;
  * @author mathe
  */
 public abstract class Relatorio {
+    private int ID;
     private Date dataEmissao;
     private Time horarioEmissao;
     private ArrayList<Pagamento> registroPagamentos;
     private Usuario gerador;
+    private int geradorCE;
 
     public Relatorio() {
         super();
@@ -29,6 +31,16 @@ public abstract class Relatorio {
         this.setRegistroPagamentos(registroPagamentos);
         this.setGerador(gerador);
     }
+
+    public int getGeradorCE() {
+        return geradorCE;
+    }
+
+    public void setGeradorCE(int geradorCE) {
+        this.geradorCE = geradorCE;
+    }
+    
+    
 
     public Usuario getGerador() {
         return gerador;
@@ -80,6 +92,12 @@ public abstract class Relatorio {
         }
         
     }
-    
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
+    }
     
 }

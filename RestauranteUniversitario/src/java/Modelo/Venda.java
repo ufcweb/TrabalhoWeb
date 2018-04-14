@@ -13,7 +13,9 @@ import java.util.Date;
  * @author mathe
  */
 public class Venda {
+    private int ID;
     private Usuario vendedor;
+    private int vendedorCE;
     private Double quantidadeCreditoVendido;
     private Date dataVenda;
     private Time horarioVenda;
@@ -21,8 +23,8 @@ public class Venda {
     public Venda() {
         super();
     }
-    
 
+    
     public Venda(Usuario vendedor, Double quantidadeCreditoVendido, Date dataVenda, Time horarioVenda) {
         this.vendedor = vendedor;
         this.quantidadeCreditoVendido = quantidadeCreditoVendido;
@@ -79,6 +81,26 @@ public class Venda {
         }
         
     }
+
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
+    }
     
+    public int getVendedorCE() {
+        return vendedorCE;
+    }
+
+    public void setVendedorCE(int vendedorCE) {
+        this.vendedorCE = vendedorCE;
+    }
+
+    @Override
+    public String toString() {
+        return "Venda{" + "ID=" + ID + ", vendedor=" + vendedor + ", vendedorCE=" + vendedorCE + ", quantidadeCreditoVendido=" + quantidadeCreditoVendido + ", dataVenda=" + dataVenda + ", horarioVenda=" + horarioVenda + '}';
+    }
     
 }

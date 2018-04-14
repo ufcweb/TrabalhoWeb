@@ -10,21 +10,22 @@ package Modelo;
  * @author mathe
  */
 public class InformacoesNutricionais {
-    private Float porcaoGramas;
-    private Float quantidadeProteinas;
+    private int ID;
+    private Double porcaoGramas;
+    private Double quantidadeProteinas;
     private Boolean comidaLactosa;
-    private Float valorEnergetico;
-    private Float quantidadeCarboidratos;
-    private Float quantidadeSodio;
-    private Float fibraAlimentar;
-    private Float gorduraTrans;
-    private Float gorduraSaturada;
-    private Float gordurasTotais;
+    private Double valorEnergetico;
+    private Double quantidadeCarboidratos;
+    private Double quantidadeSodio;
+    private Double fibraAlimentar;
+    private Double gorduraTrans;
+    private Double gorduraSaturada;
+    private Double gordurasTotais;
 
     public InformacoesNutricionais(){
         super();
     }
-    public InformacoesNutricionais(Float porcaoGramas, Float quantidadeProteinas, Boolean comidaLactosa, Float valorEnergetico, Float quantidadeCarboidratos, Float quantidadeSodio, Float fibraAlimentar, Float gorduraTrans, Float gorduraSaturada, Float gordurasTotais) {
+    public InformacoesNutricionais(Double porcaoGramas, Double quantidadeProteinas, Boolean comidaLactosa, Double valorEnergetico, Double quantidadeCarboidratos, Double quantidadeSodio, Double fibraAlimentar, Double gorduraTrans, Double gorduraSaturada, Double gordurasTotais) {
         this.setPorcaoGramas(porcaoGramas);
         this.setQuantidadeProteinas(quantidadeProteinas);
         this.setComidaLactosa(comidaLactosa);
@@ -37,24 +38,20 @@ public class InformacoesNutricionais {
         this.setGordurasTotais(gordurasTotais);
     }
 
-    public Float getPorcaoGramas() {
+    public Double getPorcaoGramas() {
         return porcaoGramas;
     }
 
-    public void setPorcaoGramas(Float porcaoGramas) {
-        if(porcaoGramas > 0){
-            this.porcaoGramas = porcaoGramas;
-        }
+    public void setPorcaoGramas(Double porcaoGramas) {
+        this.porcaoGramas = porcaoGramas;
     }
 
-    public Float getQuantidadeProteinas() {
+    public Double getQuantidadeProteinas() {
         return quantidadeProteinas;
     }
 
-    public void setQuantidadeProteinas(Float quantidadeProteinas) {
-        if(quantidadeProteinas>0){
-           this.quantidadeProteinas = quantidadeProteinas; 
-        }
+    public void setQuantidadeProteinas(Double quantidadeProteinas) {
+        this.quantidadeProteinas = quantidadeProteinas;
     }
 
     public Boolean getComidaLactosa() {
@@ -65,76 +62,77 @@ public class InformacoesNutricionais {
         this.comidaLactosa = comidaLactosa;
     }
 
-    public Float getValorEnergetico() {
+    public Double getValorEnergetico() {
         return valorEnergetico;
     }
 
-    public void setValorEnergetico(Float valorEnergetico) {
-        if(valorEnergetico>0){
-            this.valorEnergetico = valorEnergetico;
-        }    
+    public void setValorEnergetico(Double valorEnergetico) {
+        this.valorEnergetico = valorEnergetico;
     }
 
-    public Float getQuantidadeCarboidratos() {
+    public Double getQuantidadeCarboidratos() {
         return quantidadeCarboidratos;
     }
 
-    public void setQuantidadeCarboidratos(Float quantidadeCarboidratos) {
-        if (quantidadeCarboidratos>0) {
-            this.quantidadeCarboidratos = quantidadeCarboidratos;
-        }
+    public void setQuantidadeCarboidratos(Double quantidadeCarboidratos) {
+        this.quantidadeCarboidratos = quantidadeCarboidratos;
     }
 
-    public Float getQuantidadeSodio() {
+    public Double getQuantidadeSodio() {
         return quantidadeSodio;
     }
 
-    public void setQuantidadeSodio(Float quantidadeSodio) {
-        if (quantidadeSodio>0) {
-           this.quantidadeSodio = quantidadeSodio; 
-        }  
+    public void setQuantidadeSodio(Double quantidadeSodio) {
+        this.quantidadeSodio = quantidadeSodio;
     }
 
-    public Float getFibraAlimentar() {
+    public Double getFibraAlimentar() {
         return fibraAlimentar;
     }
 
-    public void setFibraAlimentar(Float fibraAlimentar) {
-        if (fibraAlimentar>0) {
-            this.fibraAlimentar = fibraAlimentar;
-        }     
+    public void setFibraAlimentar(Double fibraAlimentar) {
+        this.fibraAlimentar = fibraAlimentar;
     }
 
-    public Float getGorduraTrans() {
+    public Double getGorduraTrans() {
         return gorduraTrans;
     }
 
-    public void setGorduraTrans(Float gorduraTrans) {
-        if (gorduraTrans>0) {
-           this.gorduraTrans = gorduraTrans; 
-        } 
+    public void setGorduraTrans(Double gorduraTrans) {
+        this.gorduraTrans = gorduraTrans;
     }
 
-    public Float getGorduraSaturada() {
+    public Double getGorduraSaturada() {
         return gorduraSaturada;
     }
 
-    public void setGorduraSaturada(Float gorduraSaturada) {
-        if (gorduraSaturada>0) {
-            this.gorduraSaturada = gorduraSaturada;
-        }
+    public void setGorduraSaturada(Double gorduraSaturada) {
+        this.gorduraSaturada = gorduraSaturada;
     }
 
-    public Float getGordurasTotais() {
+    public Double getGordurasTotais() {
         return gordurasTotais;
     }
 
-    public void setGordurasTotais(Float gordurasTotais) {
-        if (gordurasTotais>0) {
-            this.gordurasTotais = gordurasTotais;
-        }
+    public void setGordurasTotais(Double gordurasTotais) {
+        this.gordurasTotais = gordurasTotais;
     }
+
     
+    
+    
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
+    }
+
+    @Override
+    public String toString() {
+        return "InformacoesNutricionais{" + "ID=" + ID + ", porcaoGramas=" + porcaoGramas + ", quantidadeProteinas=" + quantidadeProteinas + ", comidaLactosa=" + comidaLactosa + ", valorEnergetico=" + valorEnergetico + ", quantidadeCarboidratos=" + quantidadeCarboidratos + ", quantidadeSodio=" + quantidadeSodio + ", fibraAlimentar=" + fibraAlimentar + ", gorduraTrans=" + gorduraTrans + ", gorduraSaturada=" + gorduraSaturada + ", gordurasTotais=" + gordurasTotais + '}';
+    }
     
     
     

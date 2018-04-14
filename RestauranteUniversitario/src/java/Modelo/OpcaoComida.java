@@ -10,9 +10,11 @@ package Modelo;
  * @author mathe
  */
 public class OpcaoComida {
+    private int ID;
     private String nomeComida;
     private String categoria;
     private InformacoesNutricionais informacoesAdicionais;
+    private int informacoesAdicionaisCE;
 
     public OpcaoComida() {
         super();
@@ -23,6 +25,16 @@ public class OpcaoComida {
         this.setCategoria(categoria);
         this.setInformacoesAdicionais(informacoesAdicionais);
     }
+
+    public int getInformacoesAdicionaisCE() {
+        return informacoesAdicionaisCE;
+    }
+
+    public void setInformacoesAdicionaisCE(int informacoesAdicionaisCE) {
+        this.informacoesAdicionaisCE = informacoesAdicionaisCE;
+    }
+    
+    
 
     public String getNomeComida() {
         return nomeComida;
@@ -61,6 +73,19 @@ public class OpcaoComida {
         }
         
     }
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
+    }
+
+    @Override
+    public String toString() {
+        return "OpcaoComida{" + "ID=" + ID + ", nomeComida=" + nomeComida + ", categoria=" + categoria + ", informacoesAdicionais=" + informacoesAdicionais + ", informacoesAdicionaisCE=" + informacoesAdicionaisCE + '}';
+    }
+    
     
     
 }

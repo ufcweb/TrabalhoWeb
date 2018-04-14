@@ -12,12 +12,16 @@ import java.util.List;
  * @author mathe
  */
 public class Usuario {
+    private int ID;
     private String nome;
     private String email;
     private Long codIdentificador;
     private Double creditos;
     private Login login;
+    private int loginCE;
     private TipoUsuario tipoUsuario;
+    private int tipoUsuarioCE;
+    
 
     public String getNome() {
         return nome;
@@ -111,9 +115,34 @@ public class Usuario {
         
     }
     
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
+    }
     
-    
-    
+    public int getLoginCE() {
+        return loginCE;
+    }
+
+    public void setLoginCE(int loginCE) {
+        this.loginCE = loginCE;
+    }
+
+    public int getTipoUsuarioCE() {
+        return tipoUsuarioCE;
+    }
+
+    public void setTipoUsuarioCE(int tipoUsuarioCE) {
+        this.tipoUsuarioCE = tipoUsuarioCE;
+    }
+
+    @Override
+    public String toString() {
+        return "Usuario{" + "ID=" + ID + ", nome=" + nome + ", email=" + email + ", codIdentificador=" + codIdentificador + ", creditos=" + creditos + ", login=" + login + ", loginCE=" + loginCE + ", tipoUsuario=" + tipoUsuario + ", tipoUsuarioCE=" + tipoUsuarioCE + '}';
+    }
     
     
 }

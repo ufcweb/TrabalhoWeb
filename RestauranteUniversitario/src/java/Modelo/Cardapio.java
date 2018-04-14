@@ -13,9 +13,11 @@ import java.util.Date;
  * @author mathe
  */
 public class Cardapio {
+    private int ID;
     private Date dataInicial;
     private Date dataFinal;
     private ArrayList<OpcoesDiarias> opcoesDiarias;
+    private int opcoesDiariasCE;
 
     public Date getDataInicial() {
         return dataInicial;
@@ -29,6 +31,16 @@ public class Cardapio {
         }
         
     }
+
+    public int getOpcoesDiariasCE() {
+        return opcoesDiariasCE;
+    }
+
+    public void setOpcoesDiariasCE(int opcoesDiariasCE) {
+        this.opcoesDiariasCE = opcoesDiariasCE;
+    }
+    
+    
 
     public Date getDataFinal() {
         return dataFinal;
@@ -53,6 +65,19 @@ public class Cardapio {
             throw new IllegalArgumentException("Opções diárias vazias");
         }
         
+    }
+    
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
+    }
+
+    @Override
+    public String toString() {
+        return "Cardapio{" + "ID=" + ID + ", dataInicial=" + dataInicial + ", dataFinal=" + dataFinal + ", opcoesDiarias=" + opcoesDiarias + ", opcoesDiariasCE=" + opcoesDiariasCE + '}';
     }
     
     
