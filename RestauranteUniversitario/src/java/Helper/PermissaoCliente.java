@@ -3,17 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Controlador;
-
-import Modelo.Login;
+package Helper;
 
 /**
  *
  * @author mathe
  */
-public class LoginProxy{
-    
-    public void checarPermissoes(Login login){
-        
-    }
+public class PermissaoCliente {
+    private Integer nivelAcesso;
 }

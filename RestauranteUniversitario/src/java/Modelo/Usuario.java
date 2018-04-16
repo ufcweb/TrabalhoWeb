@@ -5,8 +5,6 @@
  */
 package Modelo;
 
-import java.util.List;
-
 /**
  *
  * @author mathe
@@ -14,7 +12,7 @@ import java.util.List;
 public class Usuario {
     private String nome;
     private String email;
-    private Long codIdentificador;
+    private Integer codIdentificador;
     private Double creditos;
     private Login login;
     private TipoUsuario tipoUsuario;
@@ -44,11 +42,11 @@ public class Usuario {
         }
     }
 
-    public Long getCodIdentificador() {
+    public Integer getCodIdentificador() {
         return codIdentificador;
     }
 
-    public void setCodIdentificador(Long codIdentificador) {
+    public void setCodIdentificador(Integer codIdentificador) {
         if (codIdentificador!=null) {
             this.codIdentificador = codIdentificador;
         }else{
@@ -91,29 +89,5 @@ public class Usuario {
             throw new IllegalArgumentException("Tipo de usuário inválido");
         }
         
-    }
-    
-    public void cadastrarUsuario(Usuario usuario){
-        //Salvar com classe DAO
-    }
-    
-    public void cadastrarUsuario(List<Usuario> usuarios){
-        for(Usuario usuario:usuarios){
-            //salvar com classe DAO
-        }
-    }
-    
-    public Usuario deletarUsuario(Usuario usuario){
-        return null;
-    }
-    
-    public void editarUsuario(Usuario usuario){
-        
-    }
-    
-    
-    
-    
-    
-    
+    }   
 }

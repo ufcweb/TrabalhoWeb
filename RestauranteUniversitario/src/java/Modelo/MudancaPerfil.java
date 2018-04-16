@@ -9,6 +9,6 @@ package Modelo;
  *
  * @author mathe
  */
-public class RelatorioCustos extends Relatorio {
+public class MudancaPerfil {
     
 }

@@ -14,20 +14,33 @@ import java.util.Date;
  */
 public class Venda {
     private Usuario vendedor;
-    private Double quantidadeCreditoVendido;
     private Date dataVenda;
     private Time horarioVenda;
+    private Double valor;
 
     public Venda() {
         super();
     }
     
 
-    public Venda(Usuario vendedor, Double quantidadeCreditoVendido, Date dataVenda, Time horarioVenda) {
-        this.vendedor = vendedor;
-        this.quantidadeCreditoVendido = quantidadeCreditoVendido;
-        this.dataVenda = dataVenda;
-        this.horarioVenda = horarioVenda;
+    public Venda(Usuario vendedor, Double valor, Date dataVenda, Time horarioVenda) {
+        this.setVendedor(vendedor);
+        this.setDataVenda(dataVenda);
+        this.setHorarioVenda(horarioVenda);
+        this.setValor(valor);
+        
+    }
+
+    public Double getValor() {
+        return valor;
+    }
+
+    public void setValor(Double valor) {
+        if(valor != null && valor>0.0){
+            this.valor = valor;
+        }else{
+            throw new IllegalArgumentException("Valor de venda inválido");
+        }
     }
 
     public Usuario getVendedor() {
@@ -40,19 +53,6 @@ public class Venda {
         }else{
             throw new IllegalArgumentException("Vendedor invalido");
         }
-    }
-
-    public Double getQuantidadeCreditoVendido() {
-        return quantidadeCreditoVendido;
-    }
-
-    public void setQuantidadeCreditoVendido(Double quantidadeCreditoVendido) {
-        if (quantidadeCreditoVendido !=null && quantidadeCreditoVendido>0) {
-            this.quantidadeCreditoVendido = quantidadeCreditoVendido;
-        }else{
-            throw new IllegalArgumentException("Quantidade crédito invalida");
-        }
-        
     }
 
     public Date getDataVenda() {

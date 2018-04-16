@@ -13,7 +13,7 @@ import java.util.Date;
  *
  * @author mathe
  */
-public abstract class Relatorio {
+public class Relatorio {
     private Date dataEmissao;
     private Time horarioEmissao;
     private ArrayList<Pagamento> registroPagamentos;

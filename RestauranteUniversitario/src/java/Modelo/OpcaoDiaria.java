@@ -12,16 +12,16 @@ import java.util.Date;
  *
  * @author mathe
  */
-public class OpcoesDiarias {
+public class OpcaoDiaria {
     private Date dataRefeicao;
     private String diaSemana;
     private ArrayList<OpcaoComida> opcoes;
     
-    public OpcoesDiarias(){
+    public OpcaoDiaria(){
         super();
     }
 
-    public OpcoesDiarias(Date dataRefeicao, String diaSemana, ArrayList<OpcaoComida> opcoes) {
+    public OpcaoDiaria(Date dataRefeicao, String diaSemana, ArrayList<OpcaoComida> opcoes) {
         this.dataRefeicao = dataRefeicao;
         this.diaSemana = diaSemana;
         this.opcoes = opcoes;

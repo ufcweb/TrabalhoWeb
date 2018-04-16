@@ -10,10 +10,17 @@ package Helper;
  * @author mathe
  */
 public class Permissoes {
-    public static final int NUTRICIONISTA = 5;
-    public static final int ADMINISTRADOR = 1;
-    public static final int PROFESSOR = 2;
-    public static final int RESIDENTE = 3;
-    public static final int ALUNO_NORMAL = 4;
+    //Buscar estas coisas do banco
+    
+    public static Integer NUTRICIONISTA = 5;
+    public static Integer ADMINISTRADOR = 1;
+    public static Integer PROFESSOR = 2;
+    public static Integer RESIDENTE = 3;
+    public static Integer ALUNO_NORMAL = 4;
+    
+    public static Double PRECO_ALUNO_NORMAL = 1.10;
+    public static Double PRECO_RESIDENTE = 0.0;
+    public static Double DOCENTE = 7.0; //PROFESSORES E COORDENADORES
+    public static Double FUNCIONARIO = 0.0; // ADMIN E NUTRICIONISTA
     
 }

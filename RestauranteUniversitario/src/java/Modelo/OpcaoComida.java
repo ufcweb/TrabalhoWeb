@@ -5,6 +5,9 @@
  */
 package Modelo;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author mathe
@@ -13,14 +16,17 @@ public class OpcaoComida {
     private String nomeComida;
     private String categoria;
     private InformacoesNutricionais informacoesAdicionais;
+    private List<Ingrediente> ingredientes;
 
     public OpcaoComida() {
         super();
     }
     
-    public OpcaoComida(String nomeComida, String categoria, InformacoesNutricionais informacoesAdicionais) {
+    public OpcaoComida(String nomeComida, String categoria, InformacoesNutricionais informacoesAdicionais,
+                        List<Ingrediente> ingredientes) {
         this.setNomeComida(nomeComida);
         this.setCategoria(categoria);
+        this.setIngredientes(ingredientes);
         this.setInformacoesAdicionais(informacoesAdicionais);
     }
 
@@ -61,6 +67,19 @@ public class OpcaoComida {
         }
         
     }
+
+    public List<Ingrediente> getIngredientes() {
+        return ingredientes;
+    }
+
+    public void setIngredientes(List<Ingrediente> ingredientes) {
+        if(ingredientes!=null && ingredientes.size()>0){
+            this.ingredientes = ingredientes;
+        }else{
+            throw new IllegalArgumentException("Ingredientes não foram expecificados");
+        }
+    }
+    
     
     
 }

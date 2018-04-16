@@ -10,7 +10,6 @@ package Modelo;
  * @author mathe
  */
 public class Pagamento {
-    private Double precoTotal;
     private Venda venda;
     private Usuario cliente;
 
@@ -18,23 +17,9 @@ public class Pagamento {
         super();
     }
     
-    public Pagamento(Double precoTotal, Venda venda, Usuario cliente) {
-        this.precoTotal = precoTotal;
-        this.venda = venda;
-        this.cliente = cliente;
-    }
-
-    public Double getPrecoTotal() {
-        return precoTotal;
-    }
-
-    public void setPrecoTotal(Double precoTotal) {
-        if (precoTotal!=null && precoTotal>0) {
-            this.precoTotal = precoTotal;
-        }else{
-            throw new IllegalArgumentException("Preco da venda invalido");
-        }
-        
+    public Pagamento(Venda venda, Usuario cliente) {
+        this.setVenda(venda);
+        this.setCliente(cliente);
     }
 
     public Venda getVenda() {

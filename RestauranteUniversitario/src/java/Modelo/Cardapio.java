@@ -15,7 +15,7 @@ import java.util.Date;
 public class Cardapio {
     private Date dataInicial;
     private Date dataFinal;
-    private ArrayList<OpcoesDiarias> opcoesDiarias;
+    private ArrayList<OpcaoDiaria> opcoesDiarias;
 
     public Date getDataInicial() {
         return dataInicial;
@@ -42,11 +42,11 @@ public class Cardapio {
         }
     }
 
-    public ArrayList<OpcoesDiarias> getOpcoesDiarias() {
+    public ArrayList<OpcaoDiaria> getOpcoesDiarias() {
         return opcoesDiarias;
     }
 
-    public void setOpcoesDiarias(ArrayList<OpcoesDiarias> opcoesDiarias) {
+    public void setOpcoesDiarias(ArrayList<OpcaoDiaria> opcoesDiarias) {
         if (opcoesDiarias!=null) {
             this.opcoesDiarias = opcoesDiarias;
         }else{

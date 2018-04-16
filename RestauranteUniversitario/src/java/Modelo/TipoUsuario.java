@@ -12,6 +12,7 @@ package Modelo;
 public class TipoUsuario {
     private Integer nivelAcesso;
     private Double precoCredito;
+    
 
     public Integer getNivelAcesso() {
         return nivelAcesso;
