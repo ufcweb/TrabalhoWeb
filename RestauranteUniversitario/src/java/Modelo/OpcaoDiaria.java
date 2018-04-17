@@ -13,9 +13,11 @@ import java.util.Date;
  * @author mathe
  */
 public class OpcaoDiaria {
+    private int ID;
     private Date dataRefeicao;
     private String diaSemana;
     private ArrayList<OpcaoComida> opcoes;
+    private String turno;
     
     public OpcaoDiaria(){
         super();
@@ -63,6 +65,27 @@ public class OpcaoDiaria {
             throw new IllegalArgumentException("Nenhuma opção inserida");
         }
         
+    }
+
+    public String getTurno() {
+        return turno;
+    }
+
+    public void setTurno(String turno) {
+        this.turno = turno;
+    }
+    
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
+    }
+
+    @Override
+    public String toString() {
+        return "OpcoesDiarias{" + "ID=" + ID + ", dataRefeicao=" + dataRefeicao + ", diaSemana=" + diaSemana + ", opcoes=" + opcoes + ", turno=" + turno + '}';
     }
     
     

@@ -10,38 +10,36 @@ package Modelo;
  * @author mathe
  */
 public class InformacoesNutricionais {
-    private Float porcaoGramas;
-    private Float quantidadeProteinas;
+    private int ID;
+    private Double porcaoGramas;
+    private Double quantidadeProteinas;
     private Boolean comidaLactosa;
-    private Float quantidadeSodio;
+    private Double quantidadeSodio;
 
     public InformacoesNutricionais(){
         super();
     }
-    public InformacoesNutricionais(Float porcaoGramas, Float quantidadeProteinas, Boolean comidaLactosa) {
+    public InformacoesNutricionais(Double porcaoGramas, Double quantidadeProteinas, Boolean comidaLactosa,Double quantidadeSodio) {
         this.setPorcaoGramas(porcaoGramas);
         this.setQuantidadeProteinas(quantidadeProteinas);
         this.setComidaLactosa(comidaLactosa);
+        this.setQuantidadeSodio(quantidadeSodio);
     }
 
-    public Float getPorcaoGramas() {
+    public Double getPorcaoGramas() {
         return porcaoGramas;
     }
 
-    public void setPorcaoGramas(Float porcaoGramas) {
-        if(porcaoGramas > 0){
-            this.porcaoGramas = porcaoGramas;
-        }
+    public void setPorcaoGramas(Double porcaoGramas) {
+        this.porcaoGramas = porcaoGramas;
     }
 
-    public Float getQuantidadeProteinas() {
+    public Double getQuantidadeProteinas() {
         return quantidadeProteinas;
     }
 
-    public void setQuantidadeProteinas(Float quantidadeProteinas) {
-        if(quantidadeProteinas>0){
-           this.quantidadeProteinas = quantidadeProteinas; 
-        }
+    public void setQuantidadeProteinas(Double quantidadeProteinas) {
+        this.quantidadeProteinas = quantidadeProteinas;
     }
 
     public Boolean getComidaLactosa() {
@@ -52,14 +50,30 @@ public class InformacoesNutricionais {
         this.comidaLactosa = comidaLactosa;
     }
 
-
-    public Float getQuantidadeSodio() {
+    public Double getQuantidadeSodio() {
         return quantidadeSodio;
     }
 
-    public void setQuantidadeSodio(Float quantidadeSodio) {
+
+    public void setQuantidadeSodio(Double quantidadeSodio) {
         if (quantidadeSodio>0) {
            this.quantidadeSodio = quantidadeSodio; 
         }  
     } 
+    
+    public int getID() {
+        return ID;
+    }
+
+    private void setID(int ID) {
+        this.ID = ID;
+    }
+
+    @Override
+    public String toString() {
+        return "InformacoesNutricionais{" + "ID=" + ID + ", porcaoGramas=" + porcaoGramas + ", quantidadeProteinas=" + quantidadeProteinas + ", comidaLactosa=" + comidaLactosa + ", quantidadeSodio=" + quantidadeSodio +  '}';
+    }
+    
+    
+
 }

@@ -6,7 +6,7 @@
 package ClassesDAO;
 
 import Modelo.OpcaoComida;
-import Modelo.OpcoesDiarias;
+import Modelo.OpcaoDiaria;
 import connections.ConnectionFactory;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -18,11 +18,11 @@ import java.sql.SQLException;
  * @author ValdeneidaRodrigues
  */
 public class OpcaoOpcaoDiariasDAO {
-    public static void Add(OpcaoComida c, OpcoesDiarias d) throws SQLException{
+    public static void Add(OpcaoComida c, OpcaoDiaria d) throws SQLException{
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         ResultSet rs = stmt.executeQuery("SELECT * FROM OPCAO WHERE ID = ?");
-        stmt.setInt(1, c.getID());
+        stmt.setInt(1, c.getId());
         ResultSet rs2 = stmt.executeQuery("SELECT * FROM WHERE ID = ?");
         stmt.setInt(2, d.getID());
         while(rs.next()){

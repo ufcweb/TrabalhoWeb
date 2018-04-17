@@ -10,12 +10,14 @@ package Modelo;
  * @author mathe
  */
 public class Usuario {
+    private int ID;
     private String nome;
     private String email;
     private Integer codIdentificador;
     private Double creditos;
     private Login login;
     private TipoUsuario tipoUsuario;
+    
 
     public String getNome() {
         return nome;
@@ -90,4 +92,21 @@ public class Usuario {
         }
         
     }   
+    
+    
+    
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
+    }
+
+    @Override
+    public String toString() {
+        return "Usuario{" + "ID=" + ID + ", nome=" + nome + ", email=" + email + ", codIdentificador=" + codIdentificador + ", creditos=" + creditos + ", login=" + login +  ", tipoUsuario=" + tipoUsuario + '}';
+    }
+    
+    
 }

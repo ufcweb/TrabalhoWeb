@@ -5,7 +5,7 @@
  */
 package ClassesDAO;
 
-import Modelo.OpcoesDiarias;
+import Modelo.OpcaoDiaria;
 import connections.ConnectionFactory;
 import java.sql.Connection;
 import java.sql.Date;
@@ -22,7 +22,7 @@ import java.sql.SQLException;
     turno VARCHAR(25)
  */
 public class OpcoesDiariasDAO {
-    public void Add(OpcoesDiarias c) throws SQLException{
+    public void Add(OpcaoDiaria c) throws SQLException{
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         stmt = con.prepareStatement("INSERT INTO OPCOES_DIARIAS VALUES(?, ? , ?)");
@@ -43,7 +43,7 @@ public class OpcoesDiariasDAO {
         ConnectionFactory.closeConnection(con, stmt);
     }
     
-    public static OpcoesDiarias Search(int ID) throws SQLException{
+    public static OpcaoDiaria Search(int ID) throws SQLException{
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         ResultSet rs = null;
@@ -51,7 +51,7 @@ public class OpcoesDiariasDAO {
         stmt = con.prepareStatement("SELECT * FROM OPCOES_DIARIAS WHERE ID = ID");
         stmt.execute();
         rs = stmt.executeQuery(search);
-        OpcoesDiarias l = new OpcoesDiarias();
+        OpcaoDiaria l = new OpcaoDiaria();
         if (rs.next()) {
             l.setID(rs.getInt("ID"));
             l.setDataRefeicao((Date)rs.getDate("dataRefeicao"));
@@ -66,7 +66,7 @@ public class OpcoesDiariasDAO {
     
     }
     
-    public static OpcoesDiarias setID(OpcoesDiarias c) throws SQLException{
+    public static OpcaoDiaria setID(OpcaoDiaria c) throws SQLException{
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         ResultSet rs = null;

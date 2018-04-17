@@ -13,6 +13,7 @@ import java.util.List;
  * @author mathe
  */
 public class OpcaoComida {
+    private int ID;
     private String nomeComida;
     private String categoria;
     private InformacoesNutricionais informacoesAdicionais;
@@ -78,6 +79,23 @@ public class OpcaoComida {
         }else{
             throw new IllegalArgumentException("Ingredientes não foram expecificados");
         }
+    }
+    /**
+     *
+     * @return
+     */
+    public int getId(){
+        return this.ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
+    }
+
+    @Override
+    public String toString() {
+        return "OpcaoComida{" + "ID=" + ID + ", nomeComida=" + nomeComida + ", categoria=" + categoria + ", informacoesAdicionais=" + informacoesAdicionais +
+                '}';
     }
     
     

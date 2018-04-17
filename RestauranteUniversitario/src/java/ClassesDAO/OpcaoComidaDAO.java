@@ -6,7 +6,7 @@
 package ClassesDAO;
 
 import Modelo.OpcaoComida;
-import Modelo.OpcoesDiarias;
+import Modelo.OpcaoDiaria;
 import connections.ConnectionFactory;
 import java.sql.Connection;
 import java.sql.Date;

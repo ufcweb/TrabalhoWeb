@@ -10,6 +10,7 @@ package Modelo;
  * @author mathe
  */
 public class Login {
+    private int ID;
     private String usuario;
     private String senha;
 
@@ -46,6 +47,18 @@ public class Login {
             this.senha = "";
         }
         
+    }
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
+    }
+
+    @Override
+    public String toString() {
+        return "Login{" + "ID=" + ID + ", usuario=" + usuario + ", senha=" + senha + '}';
     }
     
     

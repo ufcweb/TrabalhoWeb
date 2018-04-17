@@ -14,6 +14,7 @@ import java.util.Date;
  * @author mathe
  */
 public class Relatorio {
+    private int ID;
     private Date dataEmissao;
     private Time horarioEmissao;
     private ArrayList<Pagamento> registroPagamentos;
@@ -29,7 +30,7 @@ public class Relatorio {
         this.setRegistroPagamentos(registroPagamentos);
         this.setGerador(gerador);
     }
-
+    
     public Usuario getGerador() {
         return gerador;
     }
@@ -80,6 +81,12 @@ public class Relatorio {
         }
         
     }
-    
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
+    }
     
 }

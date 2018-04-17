@@ -10,6 +10,8 @@ package Modelo;
  * @author mathe
  */
 public class Pagamento {
+
+    private int ID;
     private Venda venda;
     private Usuario cliente;
 
@@ -45,6 +47,19 @@ public class Pagamento {
             throw new IllegalArgumentException("Cliente invalido");
         }
         
+    }
+    
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
+    }
+
+    @Override
+    public String toString() {
+        return "Pagamento{" + "ID=" + ID + ", venda=" + venda +  ", cliente=" + cliente + '}';
     }
     
     

@@ -10,6 +10,7 @@ package Modelo;
  * @author mathe
  */
 public class TipoUsuario {
+    private int ID;
     private Integer nivelAcesso;
     private Double precoCredito;
     
@@ -37,6 +38,19 @@ public class TipoUsuario {
             throw new IllegalArgumentException("Preco de crédito inválido");
         }
         
+    }
+    
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
+    }
+
+    @Override
+    public String toString() {
+        return "TipoUsuario{" + "ID=" + ID + ", nivelAcesso=" + nivelAcesso + ", precoCredito=" + precoCredito + '}';
     }
     
     
