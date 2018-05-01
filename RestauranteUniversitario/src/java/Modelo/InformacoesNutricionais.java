@@ -14,7 +14,7 @@ public class InformacoesNutricionais {
     private Double porcaoGramas;
     private Double quantidadeProteinas;
     private Boolean comidaLactosa;
-    private Double quantidadeSodio;
+    private Double quantidadeLipidio;
 
     public InformacoesNutricionais(){
         super();
@@ -51,13 +51,13 @@ public class InformacoesNutricionais {
     }
 
     public Double getQuantidadeSodio() {
-        return quantidadeSodio;
+        return quantidadeLipidio;
     }
 
 
-    public void setQuantidadeSodio(Double quantidadeSodio) {
-        if (quantidadeSodio>0) {
-           this.quantidadeSodio = quantidadeSodio; 
+    public void setQuantidadeSodio(Double quantidadeLipidio) {
+        if (quantidadeLipidio>0) {
+           this.quantidadeLipidio = quantidadeLipidio; 
         }  
     } 
     
@@ -71,7 +71,7 @@ public class InformacoesNutricionais {
 
     @Override
     public String toString() {
-        return "InformacoesNutricionais{" + "ID=" + ID + ", porcaoGramas=" + porcaoGramas + ", quantidadeProteinas=" + quantidadeProteinas + ", comidaLactosa=" + comidaLactosa + ", quantidadeSodio=" + quantidadeSodio +  '}';
+        return "InformacoesNutricionais{" + "ID=" + ID + ", porcaoGramas=" + porcaoGramas + ", quantidadeProteinas=" + quantidadeProteinas + ", comidaLactosa=" + comidaLactosa + ", quantidadeLipidio=" + quantidadeLipidio +  '}';
     }
     
     

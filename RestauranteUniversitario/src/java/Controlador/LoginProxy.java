@@ -5,7 +5,9 @@
  */
 package Controlador;
 
+import ClassesDAO.LoginDAO;
 import Modelo.Login;
+import Modelo.Usuario;
 
 /**
  *
@@ -13,7 +15,21 @@ import Modelo.Login;
  */
 public class LoginProxy{
     
-    public void checarPermissoes(Login login){
-        
+    private Usuario checarPermissoes(Login login){
+        Usuario usuarioRecuperado = null;
+        try {
+            usuarioRecuperado = null;//LoginDAO.Search(0) IMPLEMENTAR PESQUISA COM LOGIN E SENHA
+            if(usuarioRecuperado !=null){
+                return usuarioRecuperado;
+            }else{
+                throw new NullPointerException("Usuário inexistente");
+            }
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return usuarioRecuperado;
     }
+    
 }

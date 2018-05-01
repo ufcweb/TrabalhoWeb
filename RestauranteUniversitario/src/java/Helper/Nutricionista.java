@@ -9,7 +9,6 @@ import Modelo.InformacoesNutricionais;
 import Modelo.Ingrediente;
 import Modelo.OpcaoDiaria;
 import Modelo.Relatorio;
-import Modelo.RelatorioVendas;
 import java.util.Date;
 import java.util.List;
 
@@ -19,7 +18,6 @@ import java.util.List;
  */
 public interface Nutricionista {
     public Boolean montarCardapio(List<OpcaoDiaria> opcoesDiarias);
-    public RelatorioVendas verRelatorioVendas(Date data);
     public Relatorio verRelatorioGeral(Date data);
     public Boolean criarOpcaoComida(String nome, String categoria, InformacoesNutricionais informacoesNutricionais,List<Ingrediente> ingredientes);
 }

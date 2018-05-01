@@ -5,10 +5,29 @@
  */
 package Helper;
 
+import Modelo.MudancaPerfil;
+import Modelo.Relatorio;
+import Modelo.SolicitacaoReembolso;
+
 /**
  *
  * @author mathe
  */
-public class PermissaoCliente {
-    private Integer nivelAcesso;
+public class PermissaoCliente implements Cliente{
+
+    @Override
+    public Relatorio visualizarHistoricoCompras() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public SolicitacaoReembolso solicitarReembolso() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Boolean editarPerfil(MudancaPerfil dados) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
 }

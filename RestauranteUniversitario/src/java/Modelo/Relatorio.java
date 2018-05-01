@@ -19,16 +19,18 @@ public class Relatorio {
     private Time horarioEmissao;
     private ArrayList<Pagamento> registroPagamentos;
     private Usuario gerador;
+    private Cardapio cardapio;
 
     public Relatorio() {
         super();
     }
 
-    public Relatorio(Date dataEmissao, Time horarioEmissao, ArrayList<Pagamento> registroPagamentos,Usuario gerador) {
+    public Relatorio(Date dataEmissao, Time horarioEmissao, ArrayList<Pagamento> registroPagamentos,Usuario gerador,Cardapio cardapio) {
         this.setDataEmissao(dataEmissao);
         this.setHorarioEmissao(horarioEmissao);
         this.setRegistroPagamentos(registroPagamentos);
         this.setGerador(gerador);
+        this.setCardapio(cardapio);
     }
     
     public Usuario getGerador() {
@@ -81,6 +83,15 @@ public class Relatorio {
         }
         
     }
+
+    public Cardapio getCardapio() {
+        return cardapio;
+    }
+
+    public void setCardapio(Cardapio cardapio) {
+        this.cardapio = cardapio;
+    }
+    
     public int getID() {
         return ID;
     }

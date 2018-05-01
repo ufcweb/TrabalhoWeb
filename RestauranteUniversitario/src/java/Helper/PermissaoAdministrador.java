@@ -6,7 +6,6 @@
 package Helper;
 
 import Modelo.Relatorio;
-import Modelo.RelatorioVendas;
 import Modelo.SolicitacaoReembolso;
 import Modelo.Usuario;
 import Modelo.Venda;
@@ -36,11 +35,6 @@ public class PermissaoAdministrador implements Administrador{
 
     @Override
     public Usuario obterUsuario(Usuario usuario) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public RelatorioVendas verRelatorioVendas(Date data) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
