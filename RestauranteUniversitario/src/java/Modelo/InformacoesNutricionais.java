@@ -5,6 +5,8 @@
  */
 package Modelo;
 
+import Bean.InformacoesNutricionaisBean;
+
 /**
  *
  * @author mathe
@@ -19,11 +21,12 @@ public class InformacoesNutricionais {
     public InformacoesNutricionais(){
         super();
     }
-    public InformacoesNutricionais(Double porcaoGramas, Double quantidadeProteinas, Boolean comidaLactosa,Double quantidadeSodio) {
-        this.setPorcaoGramas(porcaoGramas);
-        this.setQuantidadeProteinas(quantidadeProteinas);
-        this.setComidaLactosa(comidaLactosa);
-        this.setQuantidadeSodio(quantidadeSodio);
+    public InformacoesNutricionais(InformacoesNutricionaisBean infoNutri) {
+        this.setPorcaoGramas(infoNutri.getPorcaoGramas());
+        this.setQuantidadeProteinas(infoNutri.getQuantidadeProteinas());
+        this.setComidaLactosa(infoNutri.getLactosa());
+        this.setQuantidadeLipidio(infoNutri.getLipidios());
+        this.setID(infoNutri.getId());
     }
 
     public Double getPorcaoGramas() {
@@ -55,7 +58,7 @@ public class InformacoesNutricionais {
     }
 
 
-    public void setQuantidadeSodio(Double quantidadeLipidio) {
+    public void setQuantidadeLipidio(Double quantidadeLipidio) {
         if (quantidadeLipidio>0) {
            this.quantidadeLipidio = quantidadeLipidio; 
         }  

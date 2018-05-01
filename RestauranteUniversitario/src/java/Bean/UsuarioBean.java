@@ -10,6 +10,7 @@ package Bean;
  * @author mathe
  */
 public class UsuarioBean {
+    private int Id;
     private String nome;
     private Integer codigoIdentificador;
     private String email;
@@ -22,6 +23,14 @@ public class UsuarioBean {
 
     public String getNome() {
         return nome;
+    }
+
+    public int getId() {
+        return Id;
+    }
+
+    public void setId(int Id) {
+        this.Id = Id;
     }
 
     public void setNome(String nome) {

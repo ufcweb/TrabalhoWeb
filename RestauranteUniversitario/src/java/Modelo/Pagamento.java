@@ -5,6 +5,10 @@
  */
 package Modelo;
 
+import Bean.PagamentoBean;
+import Bean.UsuarioBean;
+import Bean.VendaBean;
+
 /**
  *
  * @author mathe
@@ -19,18 +23,19 @@ public class Pagamento {
         super();
     }
     
-    public Pagamento(Venda venda, Usuario cliente) {
-        this.setVenda(venda);
-        this.setCliente(cliente);
+    public Pagamento(PagamentoBean pagamento) {
+        this.setVenda(pagamento.getVenda());
+        this.setCliente(pagamento.getCliente());
+        this.setID(pagamento.getId());
     }
 
     public Venda getVenda() {
         return venda;
     }
 
-    public void setVenda(Venda venda) {
+    public void setVenda(VendaBean venda) {
         if (venda!=null) {
-             this.venda = venda;
+             this.venda = new Venda(venda);
         }else{
             throw new IllegalArgumentException("Venda invalida");
         }
@@ -40,9 +45,9 @@ public class Pagamento {
         return cliente;
     }
 
-    public void setCliente(Usuario cliente) {
+    public void setCliente(UsuarioBean cliente) {
         if (cliente!=null) {
-            this.cliente = cliente;
+            this.cliente = new Usuario(cliente);
         }else{
             throw new IllegalArgumentException("Cliente invalido");
         }

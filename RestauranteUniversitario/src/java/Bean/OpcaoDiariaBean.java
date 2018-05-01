@@ -13,11 +13,21 @@ import java.util.Date;
  * @author mathe
  */
 public class OpcaoDiariaBean {
+    private int id;
     private ArrayList<OpcaoComidaBean> opcoesComida;
     private Date dataRefeicao;
     private String diaSemana;
+    private String turno;
     public OpcaoDiariaBean(){
         
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public Date getDataRefeicao() {
@@ -42,6 +52,14 @@ public class OpcaoDiariaBean {
 
     public void setOpcoesComida(ArrayList<OpcaoComidaBean> opcoesComida) {
         this.opcoesComida = opcoesComida;
+    }
+
+    public String getTurno() {
+        return this.turno;
+    }
+
+    public void setTurno(String turno) {
+        this.turno = turno;
     }
     
     

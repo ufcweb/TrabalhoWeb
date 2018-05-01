@@ -13,6 +13,7 @@ import java.util.Date;
  * @author mathe
  */
 public class CardapioBean {
+    private int id;
     private Date dataFinal;
     private Date dataInicial;
     private ArrayList<OpcaoDiariaBean> opcoesDiarias;
@@ -29,6 +30,10 @@ public class CardapioBean {
         this.dataFinal = dataFinal;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public Date getDataInicial() {
         return dataInicial;
     }
@@ -43,6 +48,10 @@ public class CardapioBean {
 
     public void setOpcoesDiarias(ArrayList<OpcaoDiariaBean> opcoesDiarias) {
         this.opcoesDiarias = opcoesDiarias;
+    }
+
+    public int getId() {
+       return this.id;
     }
     
     

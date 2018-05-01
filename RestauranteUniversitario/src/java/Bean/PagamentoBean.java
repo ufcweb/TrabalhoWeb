@@ -10,6 +10,7 @@ package Bean;
  * @author mathe
  */
 public class PagamentoBean {
+    private int id;
     private VendaBean venda;
     private UsuarioBean cliente;
     
@@ -19,6 +20,14 @@ public class PagamentoBean {
 
     public VendaBean getVenda() {
         return venda;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void setVenda(VendaBean venda) {

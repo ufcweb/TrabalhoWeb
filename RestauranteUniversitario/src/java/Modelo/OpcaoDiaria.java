@@ -5,6 +5,8 @@
  */
 package Modelo;
 
+import Bean.OpcaoComidaBean;
+import Bean.OpcaoDiariaBean;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -23,10 +25,12 @@ public class OpcaoDiaria {
         super();
     }
 
-    public OpcaoDiaria(Date dataRefeicao, String diaSemana, ArrayList<OpcaoComida> opcoes) {
-        this.dataRefeicao = dataRefeicao;
-        this.diaSemana = diaSemana;
-        this.opcoes = opcoes;
+    public OpcaoDiaria(OpcaoDiariaBean opcDiariaBean) {
+        this.setID(opcDiariaBean.getId());
+        this.setDataRefeicao(opcDiariaBean.getDataRefeicao());
+        this.setDiaSemana(opcDiariaBean.getDiaSemana());
+        this.setTurno(opcDiariaBean.getTurno());
+        this.setOpcoes(opcDiariaBean.getOpcoesComida());
     }
 
     public Date getDataRefeicao() {
@@ -58,9 +62,12 @@ public class OpcaoDiaria {
         return opcoes;
     }
 
-    public void setOpcoes(ArrayList<OpcaoComida> opcoes) {
+    public void setOpcoes(ArrayList<OpcaoComidaBean> opcoes) {
         if(opcoes!=null){
-            this.opcoes = opcoes;
+            this.opcoes = new ArrayList<>();
+            for (OpcaoComidaBean opcoe : opcoes) {
+                this.opcoes.add(new OpcaoComida(opcoe));
+            }
         }else{
             throw new IllegalArgumentException("Nenhuma opção inserida");
         }

@@ -5,6 +5,9 @@
  */
 package Modelo;
 
+import Bean.LoginBean;
+import Bean.UsuarioBean;
+
 /**
  *
  * @author mathe
@@ -17,8 +20,18 @@ public class Usuario {
     private Double creditos;
     private Login login;
     private TipoUsuario tipoUsuario;
-    
 
+    Usuario(UsuarioBean usuario) {
+        this.setCodIdentificador(usuario.getCodigoIdentificador());
+        this.setID(usuario.getId());
+        this.setCreditos(usuario.getCreditos());
+        this.setNome(usuario.getNome());
+        this.setEmail(usuario.getEmail());
+        this.setLogin(usuario.getLoginBean());
+    }
+    
+    
+    
     public String getNome() {
         return nome;
     }
@@ -72,9 +85,9 @@ public class Usuario {
         return login;
     }
 
-    public void setLogin(Login login) {
+    public void setLogin(LoginBean login) {
         if (login!=null) {
-            this.login = login;
+            this.login = new Login(login);
         }else{
             throw new IllegalArgumentException("Login inválido");
         }

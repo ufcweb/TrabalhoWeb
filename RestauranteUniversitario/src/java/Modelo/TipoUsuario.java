@@ -5,6 +5,7 @@
  */
 package Modelo;
 
+import Bean.TipoUsuarioBean;
 import Helper.Administrador;
 import Helper.Cliente;
 import Helper.Nutricionista;
@@ -22,6 +23,16 @@ public class TipoUsuario {
     private Cliente permissaoCliente;
     private Nutricionista permissaoNutricionista;
     private Vendedor permissaoVendedor;
+
+    public TipoUsuario(TipoUsuarioBean tub) {
+        this.setID(tub.getId());
+        this.setNivelAcesso(tub.getNivelAcesso());
+        this.setPermissaoAdministrador(tub.getPermissoesAdministrador());
+        this.setPermissaoCliente(tub.getPermissoesCliente());
+        this.setPermissaoNutricionista(tub.getPermissoesNutricionista());
+        this.setPermissaoVendedor(tub.getPermissoesAdministrador());
+        this.setPrecoCredito(tub.getPrecoCredito());
+    }
     
     
 

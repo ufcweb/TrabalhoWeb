@@ -5,6 +5,8 @@
  */
 package Modelo;
 
+import Bean.UsuarioBean;
+import Bean.VendaBean;
 import java.sql.Time;
 import java.util.Date;
 
@@ -22,13 +24,13 @@ public class Venda {
     public Venda() {
         super();
     }
-
     
-    public Venda(Usuario vendedor, Double valor, Date dataVenda, Time horarioVenda) {
-        this.setVendedor(vendedor);
-        this.setValor(valor);
-        this.setDataVenda(dataVenda);
-        this.setHorarioVenda(horarioVenda);
+    public Venda(VendaBean vendaBean){
+        this.setID(vendaBean.getID());
+        this.setDataVenda(vendaBean.getDataVenda());
+        this.setHorarioVenda(vendaBean.getHorarioVenda());
+        this.setValor(vendaBean.getValorVenda());
+        this.setVendedor(vendaBean.getVendedor());
     }
 
     public Double getValor() {
@@ -47,9 +49,9 @@ public class Venda {
         return vendedor;
     }
 
-    public void setVendedor(Usuario vendedor) {
+    public void setVendedor(UsuarioBean vendedor) {
         if (vendedor!=null) {
-            this.vendedor = vendedor;
+            this.vendedor = new Usuario(vendedor);
         }else{
             throw new IllegalArgumentException("Vendedor invalido");
         }

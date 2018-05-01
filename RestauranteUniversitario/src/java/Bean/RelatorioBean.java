@@ -14,6 +14,7 @@ import java.util.Date;
  * @author mathe
  */
 public class RelatorioBean {
+    private int id;
     private Date dataCriado;
     private Time horarioCriado;
     private UsuarioBean gerador;
@@ -22,6 +23,14 @@ public class RelatorioBean {
     
     public RelatorioBean(){
         
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public Date getDataCriado() {

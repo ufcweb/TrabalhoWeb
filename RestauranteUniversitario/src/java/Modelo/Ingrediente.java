@@ -5,15 +5,27 @@
  */
 package Modelo;
 
+import Bean.IngredienteBean;
+
 /**
  *
  * @author mathe
  */
 public class Ingrediente {
+    private int id;
     private String nomeComida;
 
-    public Ingrediente(String nomeComida) {
-        this.setNomeComida(nomeComida);
+    public Ingrediente(IngredienteBean ingrediente) {
+        this.setNomeComida(ingrediente.getNome());
+        this.setId(ingrediente.getId());
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNomeComida() {

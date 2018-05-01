@@ -5,6 +5,8 @@
  */
 package Modelo;
 
+import Bean.LoginBean;
+
 /**
  *
  * @author mathe
@@ -21,6 +23,12 @@ public class Login {
     public Login(String usuario, String senha) {
         this.usuario = usuario;
         this.senha = senha;
+    }
+
+    Login(LoginBean login) {
+        this.setID(login.getId());
+        this.setSenha(login.getSenha());
+        this.setUsuario(login.getUsuario());
     }
     
     public String getUsuario() {

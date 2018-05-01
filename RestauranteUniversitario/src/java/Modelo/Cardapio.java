@@ -5,6 +5,8 @@
  */
 package Modelo;
 
+import Bean.CardapioBean;
+import Bean.OpcaoDiariaBean;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -17,6 +19,13 @@ public class Cardapio {
     private Date dataInicial;
     private Date dataFinal;
     private ArrayList<OpcaoDiaria> opcoesDiarias;
+
+    Cardapio(CardapioBean cardapio) {
+        this.setID(cardapio.getId());
+        this.setDataInicial(cardapio.getDataInicial());
+        this.setDataFinal(cardapio.getDataFinal());
+        this.setOpcoesDiarias(cardapio.getOpcoesDiarias());
+    }
 
     public Date getDataInicial() {
         return dataInicial;
@@ -47,9 +56,12 @@ public class Cardapio {
         return opcoesDiarias;
     }
 
-    public void setOpcoesDiarias(ArrayList<OpcaoDiaria> opcoesDiarias) {
+    public void setOpcoesDiarias(ArrayList<OpcaoDiariaBean> opcoesDiarias) {
         if (opcoesDiarias!=null) {
-            this.opcoesDiarias = opcoesDiarias;
+            this.opcoesDiarias = new ArrayList<>();
+            for (OpcaoDiariaBean opcoesDiaria : opcoesDiarias) {
+                this.opcoesDiarias.add(new OpcaoDiaria(opcoesDiaria));
+            }
         }else{
             throw new IllegalArgumentException("Opções diárias vazias");
         }

@@ -5,6 +5,10 @@
  */
 package Modelo;
 
+import Bean.CardapioBean;
+import Bean.PagamentoBean;
+import Bean.RelatorioBean;
+import Bean.UsuarioBean;
 import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Date;
@@ -25,21 +29,22 @@ public class Relatorio {
         super();
     }
 
-    public Relatorio(Date dataEmissao, Time horarioEmissao, ArrayList<Pagamento> registroPagamentos,Usuario gerador,Cardapio cardapio) {
-        this.setDataEmissao(dataEmissao);
-        this.setHorarioEmissao(horarioEmissao);
-        this.setRegistroPagamentos(registroPagamentos);
-        this.setGerador(gerador);
-        this.setCardapio(cardapio);
+    public Relatorio(RelatorioBean relatorio) {
+        this.setID(relatorio.getId());
+        this.setDataEmissao(relatorio.getDataCriado());
+        this.setCardapio(relatorio.getCardapioBean());
+        this.setHorarioEmissao(relatorio.getHorarioCriado());
+        this.setGerador(relatorio.getGerador());
+        this.setRegistroPagamentos(relatorio.getPagamentos());
     }
     
     public Usuario getGerador() {
         return gerador;
     }
 
-    public void setGerador(Usuario gerador) {
+    public void setGerador(UsuarioBean gerador) {
         if (gerador!=null) {
-            this.gerador = gerador;
+            this.gerador = new Usuario(gerador);
         }else{
             throw new IllegalArgumentException("Usuario gerador invalido");
         }
@@ -75,9 +80,12 @@ public class Relatorio {
         return registroPagamentos;
     }
 
-    public void setRegistroPagamentos(ArrayList<Pagamento> registroPagamentos) {
+    public void setRegistroPagamentos(ArrayList<PagamentoBean> registroPagamentos) {
         if (registroPagamentos!=null) {
-            this.registroPagamentos = registroPagamentos;
+            this.registroPagamentos = new ArrayList<>();
+            for (PagamentoBean registroPagamento : registroPagamentos) {
+                this.registroPagamentos.add(new Pagamento(registroPagamento));
+            }
         }else{
             throw new IllegalArgumentException("Lista de pagamentos inválida");
         }
@@ -88,8 +96,8 @@ public class Relatorio {
         return cardapio;
     }
 
-    public void setCardapio(Cardapio cardapio) {
-        this.cardapio = cardapio;
+    public void setCardapio(CardapioBean cardapio) {
+        this.cardapio = new Cardapio(cardapio);
     }
     
     public int getID() {

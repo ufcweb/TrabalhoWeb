@@ -3,10 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Modelo;
+package Bean;
 
-import Bean.SolicitacaoReembolsoBean;
-import Bean.UsuarioBean;
+import Modelo.Usuario;
 import java.sql.Time;
 import java.util.Date;
 
@@ -14,18 +13,11 @@ import java.util.Date;
  *
  * @author mathe
  */
-public class SolicitacaoReembolso {
+public class SolicitacaoReembolsoBean {
     private int id;
-    private Usuario usuario;
+    private UsuarioBean usuario;
     private Date date;
     private Time horario;
-
-    public SolicitacaoReembolso(SolicitacaoReembolsoBean srb) {
-        this.setDate(srb.getDate());
-        this.setHorario(srb.getHorario());
-        this.setId(srb.getId());
-        this.setUsuario(srb.getUsuario());
-    }
 
     public int getId() {
         return id;
@@ -35,14 +27,12 @@ public class SolicitacaoReembolso {
         this.id = id;
     }
 
-    public Usuario getUsuario() {
+    public UsuarioBean getUsuario() {
         return usuario;
     }
 
     public void setUsuario(UsuarioBean usuario) {
-        if(usuario != null){
-            this.usuario = new Usuario(usuario);
-        }  
+        this.usuario = usuario;
     }
 
     public Date getDate() {
@@ -50,9 +40,7 @@ public class SolicitacaoReembolso {
     }
 
     public void setDate(Date date) {
-        if(date != null){
-            this.date = date;
-        }
+        this.date = date;
     }
 
     public Time getHorario() {
@@ -60,9 +48,7 @@ public class SolicitacaoReembolso {
     }
 
     public void setHorario(Time horario) {
-        if(horario != null){
-            this.horario = horario;
-        }  
+        this.horario = horario;
     }
     
     

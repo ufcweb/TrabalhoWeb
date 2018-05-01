@@ -10,6 +10,7 @@ package Bean;
  * @author mathe
  */
 public class InformacoesNutricionaisBean {
+    private int id;
     private Double quantidadeProteinas;
     private Boolean lactosa;
     private Double lipidios;
@@ -50,4 +51,14 @@ public class InformacoesNutricionaisBean {
     public void setPorcaoGramas(Double porcaoGramas) {
         this.porcaoGramas = porcaoGramas;
     }
+
+    public int getId() {
+       return this.id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
+    
 }

@@ -15,6 +15,7 @@ import Helper.Vendedor;
  * @author mathe
  */
 public class TipoUsuarioBean {
+    private int id;
     private Integer nivelAcesso;
     private Double precoCredito;
     private Cliente permissoesCliente;
@@ -72,5 +73,14 @@ public class TipoUsuarioBean {
     public void setPermissoesVendedor(Vendedor permissoesVendedor) {
         this.permissoesVendedor = permissoesVendedor;
     }
+
+    public int getId() {
+       return this.id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
             
 }

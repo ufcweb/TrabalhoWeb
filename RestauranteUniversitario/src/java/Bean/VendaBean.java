@@ -13,6 +13,7 @@ import java.util.Date;
  * @author mathe
  */
 public class VendaBean {
+    private int ID;
     private UsuarioBean vendedor;
     private Date dataVenda;
     private Time horarioVenda;
@@ -20,6 +21,14 @@ public class VendaBean {
     
     public VendaBean(){
         
+    }
+
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
     }
 
     public UsuarioBean getVendedor() {

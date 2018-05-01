@@ -14,6 +14,7 @@ import java.util.ArrayList;
  * @author mathe
  */
 public class OpcaoComidaBean {
+    private int id;
     private String nomeComida;
     private String categoria;
     private InformacoesNutricionaisBean informacoesNutricionais;
@@ -21,6 +22,14 @@ public class OpcaoComidaBean {
     
     public OpcaoComidaBean(){
         
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNomeComida() {

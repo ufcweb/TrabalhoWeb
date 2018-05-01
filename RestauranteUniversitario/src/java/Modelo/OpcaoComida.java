@@ -5,6 +5,9 @@
  */
 package Modelo;
 
+import Bean.InformacoesNutricionaisBean;
+import Bean.IngredienteBean;
+import Bean.OpcaoComidaBean;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,12 +26,11 @@ public class OpcaoComida {
         super();
     }
     
-    public OpcaoComida(String nomeComida, String categoria, InformacoesNutricionais informacoesAdicionais,
-                        List<Ingrediente> ingredientes) {
-        this.setNomeComida(nomeComida);
-        this.setCategoria(categoria);
-        this.setIngredientes(ingredientes);
-        this.setInformacoesAdicionais(informacoesAdicionais);
+    public OpcaoComida(OpcaoComidaBean opcBean) {
+        this.setNomeComida(opcBean.getNomeComida());
+        this.setCategoria(opcBean.getCategoria());
+        this.setIngredientes(opcBean.getIngredientes());
+        this.setInformacoesAdicionais(opcBean.getInformacoesNutricionais());
     }
 
     public String getNomeComida() {
@@ -60,9 +62,9 @@ public class OpcaoComida {
         return informacoesAdicionais;
     }
 
-    public void setInformacoesAdicionais(InformacoesNutricionais informacoesAdicionais) {
+    public void setInformacoesAdicionais(InformacoesNutricionaisBean informacoesAdicionais) {
         if(informacoesAdicionais!=null){
-           this.informacoesAdicionais = informacoesAdicionais; 
+           this.informacoesAdicionais = new InformacoesNutricionais(informacoesAdicionais); 
         }else{
             throw new IllegalArgumentException("Informaçõe da comida estão vazias");
         }
@@ -73,9 +75,12 @@ public class OpcaoComida {
         return ingredientes;
     }
 
-    public void setIngredientes(List<Ingrediente> ingredientes) {
+    public void setIngredientes(List<IngredienteBean> ingredientes) {
         if(ingredientes!=null && ingredientes.size()>0){
-            this.ingredientes = ingredientes;
+            this.ingredientes = new ArrayList<>();
+            for (IngredienteBean ingrediente : ingredientes) {
+                this.ingredientes.add(new Ingrediente(ingrediente));
+            }
         }else{
             throw new IllegalArgumentException("Ingredientes não foram expecificados");
         }
