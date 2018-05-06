@@ -72,7 +72,7 @@ public class RelatorioDAO {
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         ResultSet rs;
-        String aaa = "SELECT * FROM RELATORIO WHERE dataCriado = "+c.getDataEmissao()+" AND gerador = "+c.getGeradorCE()+" AND horario = "+c.getHorarioEmissao();
+        String aaa = "SELECT * FROM RELATORIO WHERE dataCriado = "+c.getDataEmissao()+" AND gerador = "+c.getGerador()+" AND horario = "+c.getHorarioEmissao();
         
         stmt = con.prepareStatement(aaa);
         rs = stmt.executeQuery(aaa);

@@ -24,6 +24,10 @@ public class NewMain {
      */
     public static void main(String[] args) throws SQLException {
         // TODO code application logic here
+        String Log = "aaa";
+        String search = "SELECT * FROM LOGIN WHERE login = \""+Log+"\" ";
+        System.out.println(search);
+        /*
         InformacoesNutricionais c = InformacoesNutricionaisDAO.Search(2);
         Venda v = VendaDAO.Search(1);
         Usuario u = UsuarioDAO.Search(1);
@@ -32,7 +36,7 @@ public class NewMain {
         System.out.println(v.toString());
         System.out.println(u.toString());
         System.out.println(tu.toString());
-        /*
+        
         InformacoesNutricionais c = new InformacoesNutricionais();
         c.setComidaLactosa(true);
         c.setFibraAlimentar(2.0);

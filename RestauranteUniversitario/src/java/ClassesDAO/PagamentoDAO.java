@@ -5,9 +5,13 @@
  */
 package ClassesDAO;
 
+import Bean.PagamentoBean;
+import Bean.UsuarioBean;
+import Bean.VendaBean;
 import Modelo.Cardapio;
-import Modelo.OpcoesDiarias;
+//import Modelo.OpcoesDiarias;
 import Modelo.Pagamento;
+import Modelo.Venda;
 import connections.ConnectionFactory;
 import java.sql.Connection;
 import java.sql.Date;
@@ -27,10 +31,9 @@ public class PagamentoDAO {
     public static void Add(Pagamento c) throws SQLException{
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
-        stmt = con.prepareStatement("INSERT INTO PAGAMENTO(precoTotal, venda, cliente) VALUES(?, ? , ?)");
-        stmt.setDouble(1, c.getPrecoTotal());
-        stmt.setLong(2, c.getVendaCE());
-        stmt.setLong(3, c.getClienteCE());
+        stmt = con.prepareStatement("INSERT INTO PAGAMENTO(venda, cliente) VALUES(?, ? )");
+        stmt.setInt(1, c.getVenda().getID());
+        stmt.setInt(2, c.getCliente().getID());
         stmt.execute();
         
         ConnectionFactory.closeConnection(con, stmt);
@@ -45,7 +48,7 @@ public class PagamentoDAO {
         ConnectionFactory.closeConnection(con, stmt);
     }
     
-    public static Pagamento Search(int ID) throws SQLException{
+    public static PagamentoBean Search(int ID) throws SQLException{
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         ResultSet rs = null;
@@ -53,12 +56,12 @@ public class PagamentoDAO {
         stmt = con.prepareStatement("SELECT * FROM PAGAMENTO WHERE ID = ID");
         stmt.execute();
         rs = stmt.executeQuery(search);
-        Pagamento l = new Pagamento();
+        PagamentoBean l = new PagamentoBean();
         if (rs.next()) {
-            l.setID(rs.getInt("ID"));
-            l.setClienteCE(rs.getInt("cliente"));//FAZER UM RS PRA RETORNAR OS DADOS DO USUARIO E FAZER UM OBJETO
-            l.setPrecoTotal(rs.getDouble("precoTotal"));
-            l.setVendaCE(rs.getInt("venda"));//FAZER UM RS PRA RETORNAR OS DADOS DA VENDA E FAZER UM OBJETO
+            l.setId(rs.getInt("ID"));
+            l.setCliente((UsuarioBean)rs.getObject("cliente"));//FAZER UM RS PRA RETORNAR OS DADOS DO USUARIO E FAZER UM OBJETO
+            
+            l.setVenda((VendaBean)rs.getObject("venda"));//FAZER UM RS PRA RETORNAR OS DADOS DA VENDA E FAZER UM OBJETO
         }
         ConnectionFactory.closeConnection(con, stmt);
         return l;
@@ -72,7 +75,7 @@ public class PagamentoDAO {
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         ResultSet rs;
-        String aaa = "SELECT * FROM PAGAMENTO WHERE precoTotal = "+c.getPrecoTotal()+" AND cliente = "+c.getClienteCE()+" AND venda = "+c.getVendaCE();
+        String aaa = "SELECT * FROM PAGAMENTO WHERE  cliente = "+c.getCliente().getID()+" AND venda = "+c.getVenda().getID();
         
         stmt = con.prepareStatement(aaa);
         rs = stmt.executeQuery(aaa);

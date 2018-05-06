@@ -5,6 +5,9 @@
  */
 package ClassesDAO;
 
+import Bean.LoginBean;
+import Bean.TipoUsuarioBean;
+import Bean.UsuarioBean;
 import Modelo.TipoUsuario;
 import Modelo.Usuario;
 import connections.ConnectionFactory;
@@ -33,8 +36,8 @@ public class UsuarioDAO {
         stmt.setLong(2, c.getCodIdentificador());
         stmt.setString(3, c.getEmail());
         stmt.setDouble(4, c.getCreditos());
-        stmt.setInt(5, c.getLoginCE());
-        stmt.setInt(6, c.getTipoUsuarioCE());
+        stmt.setInt(5, c.getLogin().getID());
+        stmt.setInt(6, c.getTipoUsuario().getID());
         stmt.execute();
         
         ConnectionFactory.closeConnection(con, stmt);
@@ -49,7 +52,7 @@ public class UsuarioDAO {
         ConnectionFactory.closeConnection(con, stmt);
     }
     
-    public static Usuario Search(int ID) throws SQLException{
+    public static UsuarioBean Search(int ID) throws SQLException{
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         ResultSet rs = null;
@@ -57,15 +60,15 @@ public class UsuarioDAO {
         stmt = con.prepareStatement("SELECT * FROM USUARIO WHERE ID = ID");
         stmt.execute();
         rs = stmt.executeQuery(search);
-        Usuario l = new Usuario();
+        UsuarioBean l = new UsuarioBean();
         if (rs.next()) {
-            l.setID(rs.getInt("ID"));
-            l.setCodIdentificador(rs.getLong("codIdentificador"));
+            l.setId(rs.getInt("ID"));
+            l.setCodigoIdentificador(rs.getInt("codIdentificador"));
             l.setCreditos(rs.getDouble("creditos"));
             l.setEmail(rs.getString("email"));
-            l.setLoginCE(rs.getInt("login"));
+            l.setLoginBean((LoginBean)rs.getObject("login"));
             l.setNome(rs.getString("nome"));
-            l.setTipoUsuarioCE(rs.getInt("tipoUsuario"));
+            l.setTipoUsuarioBean((TipoUsuarioBean)rs.getObject("tipoUsuario"));
         }
         ConnectionFactory.closeConnection(con, stmt);
         return l;
@@ -84,8 +87,8 @@ public class UsuarioDAO {
                 + "AND email = \""+c.getEmail()+"\"  "
                 + "AND creditos = "+c.getCreditos()+" "
                 + "AND codIdentificador = "+c.getCodIdentificador()+" "
-                + "AND login = "+c.getLoginCE()+" "
-                + "AND tipoUsuario = "+c.getTipoUsuarioCE()+" ";
+                + "AND login = "+c.getLogin()+" "
+                + "AND tipoUsuario = "+c.getTipoUsuario()+" ";
         
         stmt = con.prepareStatement(aaa);
         rs = stmt.executeQuery(aaa);

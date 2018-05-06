@@ -5,6 +5,7 @@
  */
 package ClassesDAO;
 
+import Bean.UsuarioBean;
 import Modelo.Usuario;
 import Modelo.Venda;
 import connections.ConnectionFactory;
@@ -28,8 +29,8 @@ public class VendaDAO {
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         stmt = con.prepareStatement("INSERT INTO VENDA(vendedor, quantidadeCredito, data, horario) VALUES(?, ?, ?, ?)");
-        stmt.setInt(1, c.getVendedorCE());
-        stmt.setDouble(2, c.getQuantidadeCreditoVendido());
+        stmt.setInt(1, c.getVendedor().getID());
+        stmt.setDouble(2, c.getValor());
         stmt.setDate(3, (Date)c.getDataVenda());
         stmt.setTime(4, c.getHorarioVenda());
         stmt.execute();
@@ -60,8 +61,8 @@ public class VendaDAO {
             l.setID(rs.getInt("ID"));
             l.setDataVenda((Date)rs.getDate("dataVenda"));
             l.setHorarioVenda(rs.getTime("horario"));
-            l.setQuantidadeCreditoVendido(rs.getDouble("quantidadeCredito"));
-            l.setVendedorCE(rs.getInt("vendedor"));
+            l.setValor(rs.getDouble("quantidadeCredito"));
+            l.setVendedor((UsuarioBean)rs.getObject("vendedor"));
         }
         ConnectionFactory.closeConnection(con, stmt);
         return l;
@@ -76,7 +77,7 @@ public class VendaDAO {
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         ResultSet rs;
-        String aaa = "SELECT * FROM RELATORIO WHERE vendedor = "+c.getVendedorCE()+" AND quantidadeCredito = "+c.getQuantidadeCreditoVendido()+""
+        String aaa = "SELECT * FROM RELATORIO WHERE vendedor = "+c.getVendedor().getID()+" AND quantidadeCredito = "+c.getValor()+""
                 + " AND data = "+(Date)c.getDataVenda()+" AND horario = "+c.getHorarioVenda()+" ";
         
         stmt = con.prepareStatement(aaa);

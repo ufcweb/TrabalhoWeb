@@ -5,6 +5,7 @@
  */
 package ClassesDAO;
 
+import Bean.CardapioBean;
 import Modelo.Cardapio;
 import connections.ConnectionFactory;
 import java.sql.Connection;
@@ -42,16 +43,16 @@ public class CardapioDAO {
         ConnectionFactory.closeConnection(con, stmt);
     }
     
-    public static ArrayList<Cardapio> Search(Date dataInicial, Date dataFinal) throws SQLException{
+    public static ArrayList<CardapioBean> Search(Date dataInicial, Date dataFinal) throws SQLException{
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        ArrayList<Cardapio> cardapio = new ArrayList<Cardapio>();
+        ArrayList<CardapioBean> cardapio = new ArrayList<CardapioBean>();
         if (dataInicial != null && dataFinal != null) {
             stmt = con.prepareStatement("SELECT * FROM CARDAPIO WHERE dataInicial = ? AND dataFinal = ?");
             stmt.setDate(1, dataInicial);
             stmt.setDate(2, dataFinal);
-            System.out.println("???????????");
+            //System.out.println("???????????");
             stmt.execute();
         }else if(dataInicial != null && dataFinal == null){
             stmt = con.prepareStatement("SELECT * FROM CARDAPIO WHERE dataInicial = ?");
@@ -67,7 +68,7 @@ public class CardapioDAO {
         }
         rs = stmt.executeQuery();
         while(rs.next()){
-            Cardapio c = new Cardapio();
+            CardapioBean c = new CardapioBean();
             c.setDataInicial(rs.getDate("dataInicial"));
             c.setDataFinal(rs.getDate("dataFinal"));
             cardapio.add(c);

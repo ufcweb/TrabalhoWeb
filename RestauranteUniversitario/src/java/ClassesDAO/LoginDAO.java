@@ -5,6 +5,7 @@
  */
 package ClassesDAO;
 
+import Bean.LoginBean;
 import Modelo.Login;
 import connections.ConnectionFactory;
 import java.sql.Connection;
@@ -38,7 +39,7 @@ public class LoginDAO {
         ConnectionFactory.closeConnection(con, stmt);
     }
     
-    public static Login Search(int ID) throws SQLException{
+    public static LoginBean Search(int ID) throws SQLException{
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         ResultSet rs = null;
@@ -46,13 +47,31 @@ public class LoginDAO {
         stmt = con.prepareStatement("SELECT * FROM LOGIN WHERE ID = ID");
         stmt.execute();
         rs = stmt.executeQuery(search);
-        Login l = new Login();
+        LoginBean l = new LoginBean();
         if (rs.next()) {
-            l.setID(rs.getInt("ID"));
+            l.setId(rs.getInt("ID"));
             l.setUsuario(rs.getString("usuario"));
             l.setSenha(rs.getString("senha"));
         }
         ConnectionFactory.closeConnection(con, stmt);
+        return l;
+    }
+    
+    public static LoginBean Search(Login Log) throws SQLException{
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        String search = "SELECT * FROM LOGIN WHERE login = \""+Log.getUsuario()+"\" AND senha = \""+Log.getSenha()+"\" ";
+        stmt = con.prepareStatement(search);
+        stmt.execute();
+        rs = stmt.executeQuery(search);
+        LoginBean l = new LoginBean();
+        if (rs.next()) {
+            l.setId(rs.getInt("ID"));
+            l.setUsuario(rs.getString("usuario"));
+            l.setSenha(rs.getString("senha"));
+        }
+        
         return l;
     }
     

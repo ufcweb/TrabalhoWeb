@@ -24,7 +24,7 @@ public class IngredienteOpcaoDAO {
         PreparedStatement stmt = null;
         stmt = con.prepareStatement("INSERT INTO INGREDIENTE_OPCAO(nomeIngrediente, ID_opcao) VALUES(?, ?)");
         stmt.setString(1, nomeIngrediente);
-        stmt.setInt(2, c.getID()); 
+        stmt.setInt(2, c.getId()); 
         stmt.execute();
         
         ConnectionFactory.closeConnection(con, stmt);

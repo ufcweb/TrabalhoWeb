@@ -5,6 +5,7 @@
  */
 package ClassesDAO;
 
+import Bean.TipoUsuarioBean;
 import Modelo.Relatorio;
 import Modelo.TipoUsuario;
 import connections.ConnectionFactory;
@@ -38,7 +39,7 @@ public class TipoUsuarioDAO {
         ConnectionFactory.closeConnection(con, stmt);
     }
     
-    public static TipoUsuario Search(int ID) throws SQLException{
+    public static TipoUsuarioBean Search(int ID) throws SQLException{
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         ResultSet rs = null;
@@ -46,9 +47,9 @@ public class TipoUsuarioDAO {
         stmt = con.prepareStatement("SELECT * FROM TIPO_USUARIO WHERE ID = ID");
         stmt.execute();
         rs = stmt.executeQuery(search);
-        TipoUsuario l = new TipoUsuario();
+        TipoUsuarioBean l = new TipoUsuarioBean();
         if (rs.next()) {
-            l.setID(rs.getInt("ID"));
+            l.setId(rs.getInt("ID"));
             l.setNivelAcesso(rs.getInt("nivelAcesso"));
             l.setPrecoCredito(rs.getDouble("preçoCredito"));
         }
