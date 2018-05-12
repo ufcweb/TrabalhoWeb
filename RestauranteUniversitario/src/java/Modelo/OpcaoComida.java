@@ -5,9 +5,9 @@
  */
 package Modelo;
 
-import Bean.InformacoesNutricionaisBean;
-import Bean.IngredienteBean;
-import Bean.OpcaoComidaBean;
+import modelBean.InformacoesNutricionaisBean;
+import modelBean.IngredienteBean;
+import modelBean.OpcaoComidaBean;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,7 +33,7 @@ public class OpcaoComida {
         this.setInformacoesAdicionais(opcBean.getInformacoesNutricionais());
     }
 
-    public String getNomeComida() {
+    public  String getNomeComida() {
         return nomeComida;
     }
 

@@ -9,6 +9,7 @@ import Modelo.Relatorio;
 import Modelo.SolicitacaoReembolso;
 import Modelo.Usuario;
 import java.util.Date;
+import modelBean.UsuarioBean;
 
 /**
  *
@@ -20,7 +21,7 @@ public interface Administrador extends Vendedor {
     public Boolean addUsuario(Usuario usuario);
     public Boolean alterarUsuario(Usuario usuario);
     public Boolean removerUsuario(Usuario usuario);
-    public Usuario obterUsuario(Usuario usuario);
+    public UsuarioBean obterUsuario(Usuario usuario);
     
     public Relatorio verRelatorioGeral(Date data);
     

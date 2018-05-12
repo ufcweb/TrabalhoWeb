@@ -23,4 +23,5 @@ public class Permissoes {
     public static Double DOCENTE = 7.0; //PROFESSORES E COORDENADORES
     public static Double FUNCIONARIO = 0.0; // ADMIN E NUTRICIONISTA
     
+    
 }

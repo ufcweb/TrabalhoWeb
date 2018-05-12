@@ -6,12 +6,16 @@
 package newpackage;
 
 
-import ClassesDAO.*;
+import DAO.UsuarioDAO;
+import Helper.Permissoes;
 import Modelo.*;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.sql.Time;
 import java.util.ArrayList;
+import modelBean.LoginBean;
+import modelBean.TipoUsuarioBean;
+import modelBean.UsuarioBean;
 
 /**
  *
@@ -27,6 +31,24 @@ public class NewMain {
         String Log = "aaa";
         String search = "SELECT * FROM LOGIN WHERE login = \""+Log+"\" ";
         System.out.println(search);
+        
+        LoginBean l = new LoginBean();
+        l.setId(1);
+        l.setSenha("papaoo");
+        l.setUsuario("385391");
+        TipoUsuarioBean t = new TipoUsuarioBean();
+        t.setId(1);
+        t.setNivelAcesso(Permissoes.ALUNO_NORMAL);
+        t.setPrecoCredito(Permissoes.PRECO_ALUNO_NORMAL);
+        UsuarioBean a = new UsuarioBean();
+        a.setId(1);
+        a.setCodigoIdentificador(8474554);
+        a.setCreditos(0.0);
+        a.setEmail("matheusdin04@gmail.com");
+        a.setNome("Matheus");
+        a.setLoginBean(l);
+        a.setTipoUsuarioBean(t);
+        UsuarioDAO.Add(a);
         /*
         InformacoesNutricionais c = InformacoesNutricionaisDAO.Search(2);
         Venda v = VendaDAO.Search(1);

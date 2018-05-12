@@ -5,8 +5,8 @@
  */
 package Modelo;
 
-import Bean.SolicitacaoReembolsoBean;
-import Bean.UsuarioBean;
+import modelBean.SolicitacaoReembolsoBean;
+import modelBean.UsuarioBean;
 import java.sql.Time;
 import java.util.Date;
 

@@ -5,8 +5,8 @@
  */
 package Modelo;
 
-import Bean.UsuarioBean;
-import Bean.VendaBean;
+import modelBean.UsuarioBean;
+import modelBean.VendaBean;
 import java.sql.Time;
 import java.util.Date;
 
@@ -49,9 +49,9 @@ public class Venda {
         return vendedor;
     }
 
-    public void setVendedor(UsuarioBean vendedor) {
+    public void setVendedor(Usuario vendedor) {
         if (vendedor!=null) {
-            this.vendedor = new Usuario(vendedor);
+            this.vendedor = vendedor;
         }else{
             throw new IllegalArgumentException("Vendedor invalido");
         }
@@ -94,5 +94,6 @@ public class Venda {
     public String toString() {
         return "Venda{" + "ID=" + ID + ", vendedor=" + vendedor + ", dataVenda=" + dataVenda + ", horarioVenda=" + horarioVenda + '}';
     }
+    
     
 }

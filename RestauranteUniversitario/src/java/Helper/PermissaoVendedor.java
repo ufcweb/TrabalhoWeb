@@ -5,10 +5,16 @@
  */
 package Helper;
 
+import DAO.UsuarioDAO;
 import Modelo.Usuario;
 import Modelo.Venda;
+import java.sql.SQLException;
 import java.sql.Time;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import modelBean.UsuarioBean;
+import modelBean.VendaBean;
 
 /**
  *
@@ -18,7 +24,10 @@ public class PermissaoVendedor implements Vendedor {
 
     @Override
     public Boolean venderCredito(Usuario usuario, Double valor) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        usuario.setCreditos(usuario.getCreditos()+valor);
+        UsuarioBean ub = usuario.gerarBean();
+        return UsuarioDAO.Update(ub);
+
     }
 
     @Override
@@ -28,12 +37,19 @@ public class PermissaoVendedor implements Vendedor {
 
     @Override
     public Venda gerarVenda(Usuario vendedor, Double valor, Time horario, Date data) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Venda venda = new Venda();
+        VendaBean vb = new VendaBean();
+        vb.setDataVenda(data);
+        vb.setValorVenda(valor);
+        vb.setHorarioVenda(horario);
+        vb.setVendedor(vendedor.gerarBean());
+        
+        return venda;
     }
 
     @Override
     public Boolean debitarCredito(Usuario usuario, Double valor) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return true;
     }
     
 }

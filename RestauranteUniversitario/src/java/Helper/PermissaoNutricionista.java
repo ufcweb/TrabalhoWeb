@@ -32,5 +32,15 @@ public class PermissaoNutricionista implements Nutricionista {
     public Boolean criarOpcaoComida(String nome, String categoria, InformacoesNutricionais informacoesNutricionais, List<Ingrediente> ingredientes) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public Boolean criarIngrediente(String ingrediente) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Boolean criarInformacoesNutricionais() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

@@ -5,8 +5,9 @@
  */
 package Modelo;
 
-import Bean.LoginBean;
-import Bean.UsuarioBean;
+import modelBean.LoginBean;
+import modelBean.TipoUsuarioBean;
+import modelBean.UsuarioBean;
 
 /**
  *
@@ -97,16 +98,14 @@ public class Usuario {
         return tipoUsuario;
     }
 
-    public void setTipoUsuario(TipoUsuario tipoUsuario) {
+    public void setTipoUsuario(TipoUsuarioBean tipoUsuario) {
         if (tipoUsuario!=null) {
-           this.tipoUsuario = tipoUsuario; 
+           this.tipoUsuario = new TipoUsuario(tipoUsuario); 
         }else{
             throw new IllegalArgumentException("Tipo de usuário inválido");
         }
         
     }   
-    
-    
     
     public int getID() {
         return ID;
@@ -121,5 +120,14 @@ public class Usuario {
         return "Usuario{" + "ID=" + ID + ", nome=" + nome + ", email=" + email + ", codIdentificador=" + codIdentificador + ", creditos=" + creditos + ", login=" + login +  ", tipoUsuario=" + tipoUsuario + '}';
     }
     
-    
+    public UsuarioBean gerarBean(){
+        UsuarioBean ub = new UsuarioBean();
+        ub.setId(ID);
+        ub.setNome(nome);
+        ub.setEmail(email);
+        ub.setCodigoIdentificador(codIdentificador);
+        ub.setCreditos(creditos);
+        ub.setLoginBean(login.gerarBean());
+        return ub;
+    }
 }

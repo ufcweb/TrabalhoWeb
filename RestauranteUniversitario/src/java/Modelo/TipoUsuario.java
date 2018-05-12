@@ -5,10 +5,14 @@
  */
 package Modelo;
 
-import Bean.TipoUsuarioBean;
+import modelBean.TipoUsuarioBean;
 import Helper.Administrador;
 import Helper.Cliente;
 import Helper.Nutricionista;
+import Helper.PermissaoAdministrador;
+import Helper.PermissaoCliente;
+import Helper.PermissaoNutricionista;
+import Helper.Permissoes;
 import Helper.Vendedor;
 
 /**
@@ -27,11 +31,6 @@ public class TipoUsuario {
     public TipoUsuario(TipoUsuarioBean tub) {
         this.setID(tub.getId());
         this.setNivelAcesso(tub.getNivelAcesso());
-        this.setPermissaoAdministrador(tub.getPermissoesAdministrador());
-        this.setPermissaoCliente(tub.getPermissoesCliente());
-        this.setPermissaoNutricionista(tub.getPermissoesNutricionista());
-        this.setPermissaoVendedor(tub.getPermissoesAdministrador());
-        this.setPrecoCredito(tub.getPrecoCredito());
     }
     
     
@@ -40,9 +39,10 @@ public class TipoUsuario {
         return nivelAcesso;
     }
 
-    public void setNivelAcesso(Integer nivelAcesso) {
+    private void setNivelAcesso(Integer nivelAcesso) {
         if (nivelAcesso!=null) {
             this.nivelAcesso = nivelAcesso;
+            this.setPermissoes();
         }else{
             throw new IllegalArgumentException("Nível de acesso inválido");
         }
@@ -69,38 +69,47 @@ public class TipoUsuario {
         this.ID = ID;
     }
 
-    public Administrador getPermissaoAdministrador() {
-        return permissaoAdministrador;
+    private void setPermissoes(){
+        switch(this.nivelAcesso){
+            case 1:
+                this.permissaoAdministrador = new PermissaoAdministrador();
+                this.setPrecoCredito(Permissoes.FUNCIONARIO);
+                break;
+            case 2:
+                this.permissaoCliente = new PermissaoCliente();
+                this.setPrecoCredito(Permissoes.DOCENTE);
+                break;
+            case 3:
+                this.permissaoCliente = new PermissaoCliente();
+                this.setPrecoCredito(Permissoes.PRECO_RESIDENTE);
+                break;
+            case 4:
+                this.permissaoCliente = new PermissaoCliente();
+                this.setPrecoCredito(Permissoes.PRECO_ALUNO_NORMAL);
+                break;
+            case 5:
+                this.permissaoNutricionista = new PermissaoNutricionista();
+                this.setPrecoCredito(Permissoes.FUNCIONARIO);
+                break;
+        }
+        
     }
 
-    public void setPermissaoAdministrador(Administrador permissaoAdministrador) {
-        this.permissaoAdministrador = permissaoAdministrador;
+    public Administrador getPermissaoAdministrador() {
+        return permissaoAdministrador;
     }
 
     public Cliente getPermissaoCliente() {
         return permissaoCliente;
     }
 
-    public void setPermissaoCliente(Cliente permissaoCliente) {
-        this.permissaoCliente = permissaoCliente;
-    }
-
     public Nutricionista getPermissaoNutricionista() {
         return permissaoNutricionista;
-    }
-
-    public void setPermissaoNutricionista(Nutricionista permissaoNutricionista) {
-        this.permissaoNutricionista = permissaoNutricionista;
     }
 
     public Vendedor getPermissaoVendedor() {
         return permissaoVendedor;
     }
-
-    public void setPermissaoVendedor(Vendedor permissaoVendedor) {
-        this.permissaoVendedor = permissaoVendedor;
-    }
-    
 
     @Override
     public String toString() {

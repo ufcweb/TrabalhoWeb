@@ -5,7 +5,7 @@
  */
 package Modelo;
 
-import Bean.InformacoesNutricionaisBean;
+import modelBean.InformacoesNutricionaisBean;
 
 /**
  *

@@ -5,13 +5,13 @@
  */
 package Modelo;
 
-import Bean.IngredienteBean;
+import modelBean.IngredienteBean;
 
 /**
  *
  * @author mathe
  */
-public class Ingrediente {
+public class Ingrediente  {
     private int id;
     private String nomeComida;
 
@@ -19,6 +19,11 @@ public class Ingrediente {
         this.setNomeComida(ingrediente.getNome());
         this.setId(ingrediente.getId());
     }
+    
+    public static int a(){return 0;
+}
+    public static int a(int i){return 0;
+}
 
     public int getId() {
         return id;

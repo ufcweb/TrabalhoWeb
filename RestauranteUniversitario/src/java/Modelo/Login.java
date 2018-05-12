@@ -5,7 +5,7 @@
  */
 package Modelo;
 
-import Bean.LoginBean;
+import modelBean.LoginBean;
 
 /**
  *
@@ -69,5 +69,11 @@ public class Login {
         return "Login{" + "ID=" + ID + ", usuario=" + usuario + ", senha=" + senha + '}';
     }
     
-    
+    public  LoginBean gerarBean(){
+        LoginBean lb = new LoginBean();
+        lb.setId(ID);
+        lb.setSenha(senha);
+        lb.setUsuario(usuario);
+        return lb;
+    }
 }

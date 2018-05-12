@@ -20,4 +20,7 @@ public interface Nutricionista {
     public Boolean montarCardapio(List<OpcaoDiaria> opcoesDiarias);
     public Relatorio verRelatorioGeral(Date data);
     public Boolean criarOpcaoComida(String nome, String categoria, InformacoesNutricionais informacoesNutricionais,List<Ingrediente> ingredientes);
+    public Boolean criarIngrediente(String ingrediente);
+    public Boolean criarInformacoesNutricionais();
+    
 }

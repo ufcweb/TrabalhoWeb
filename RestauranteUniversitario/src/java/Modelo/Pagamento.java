@@ -5,9 +5,9 @@
  */
 package Modelo;
 
-import Bean.PagamentoBean;
-import Bean.UsuarioBean;
-import Bean.VendaBean;
+import modelBean.PagamentoBean;
+import modelBean.UsuarioBean;
+import modelBean.VendaBean;
 
 /**
  *

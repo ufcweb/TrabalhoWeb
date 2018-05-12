@@ -5,8 +5,8 @@
  */
 package Modelo;
 
-import Bean.OpcaoComidaBean;
-import Bean.OpcaoDiariaBean;
+import modelBean.OpcaoComidaBean;
+import modelBean.OpcaoDiariaBean;
 import java.util.ArrayList;
 import java.util.Date;
 

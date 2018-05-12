@@ -5,10 +5,10 @@
  */
 package Modelo;
 
-import Bean.CardapioBean;
-import Bean.PagamentoBean;
-import Bean.RelatorioBean;
-import Bean.UsuarioBean;
+import modelBean.CardapioBean;
+import modelBean.PagamentoBean;
+import modelBean.RelatorioBean;
+import modelBean.UsuarioBean;
 import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Date;
