@@ -102,10 +102,24 @@ public class UsuarioDAO {
     }
     
     
-    public static boolean Update(UsuarioBean usuario){
+    public static boolean Update(UsuarioBean usuario)throws SQLException{
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        String update = "UPDATE USUARIO SET ID=?,nome=?,codIdentificador=?,email=?"
+                + "creditos=?,login=?,tipoUsuario=? WHERE ID="+usuario.getId();
+        stmt=con.prepareStatement(update);
+        stmt.setInt(1,usuario.getId());
+        stmt.setString(2,usuario.getNome());
+        stmt.setLong(3,usuario.getCodigoIdentificador());
+        stmt.setString(4,usuario.getEmail());
+        stmt.setDouble(5,usuario.getCreditos());
+        stmt.setInt(6,usuario.getLoginBean().getId());
+        stmt.setInt(7,usuario.getTipoUsuarioBean().getId());
+        stmt.execute();
+        ConnectionFactory.closeConnection(con,stmt);
         return true;
     }
-    
+    /*
     public static Usuario setID (Usuario c) throws SQLException{
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
@@ -125,4 +139,5 @@ public class UsuarioDAO {
         ConnectionFactory.closeConnection(con, stmt);
         return c; 
     }
+*/
 }

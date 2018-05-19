@@ -5,37 +5,29 @@
  */
 package DAO;
 
+import Modelo.Ingrediente;
 import Modelo.OpcaoComida;
 import connections.ConnectionFactory;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import modelBean.OpcaoComidaBean;
 
 /**
  *
- * @author ValdeneidaRodrigues
- * ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
- * nomeIngrediente VARCHAR(100),
- * ID_opcao INT,
+ * @author Nicolas
  */
-public class IngredienteOpcaoDAO {
-    public static void Add(String nomeIngrediente, OpcaoComida c) throws SQLException{
+public class IngredienteDAO {
+    public static void Add(Ingrediente i) throws SQLException{
         Connection con = ConnectionFactory.getConnection();
-        PreparedStatement stmt = null;
-        stmt = con.prepareStatement("INSERT INTO INGREDIENTE_OPCAO(nomeIngrediente, ID_opcao) VALUES(?, ?)");
-        stmt.setString(1, nomeIngrediente);
-        stmt.setInt(2, c.getId()); 
-        stmt.execute();
-        
+        PreparedStatement stmt = null; 
+        stmt.execute();  
         ConnectionFactory.closeConnection(con, stmt);
     }
     
     public static void Remove(int ID) throws SQLException{
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
-        stmt = con.prepareStatement("DELETE FROM INGREDIENTE_OPCAO WHERE ID = ?");
-        stmt.setInt(1, ID);
+        stmt = con.prepareStatement("");
         stmt.execute();
         ConnectionFactory.closeConnection(con, stmt);
     }
@@ -43,17 +35,16 @@ public class IngredienteOpcaoDAO {
     public static void Search(int ID) throws SQLException{
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
-        stmt = con.prepareStatement("SELECT * FROM INGREDIENTE_OPCAO WHERE ID = ID");
+        stmt = con.prepareStatement("SELECT * FROM INGREDIENTE WHERE ID = ID");
         stmt.execute();
         ConnectionFactory.closeConnection(con, stmt);
     }
     
-    public static boolean Update(OpcaoComidaBean c) throws SQLException{
-        Connection con = ConnectionFactory.getConnection();
+    public static void Update() throws SQLException{
+     Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
-        String update = "UPDATE OPCAO_COMIDA SET.."; //ACHO Q É PRECISO FAZER UNS JOINS
+        stmt = con.prepareStatement("SELECT * FROM INGREDIENTE WHERE ID = ID");
         stmt.execute();
         ConnectionFactory.closeConnection(con, stmt);
-        return true;
     }
 }

@@ -14,6 +14,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import modelBean.VendaBean;
 
 /**
  *
@@ -62,17 +63,29 @@ public class VendaDAO {
             l.setDataVenda((Date)rs.getDate("dataVenda"));
             l.setHorarioVenda(rs.getTime("horario"));
             l.setValor(rs.getDouble("quantidadeCredito"));
-            l.setVendedor((UsuarioBean)rs.getObject("vendedor"));
+            l.setVendedor((Usuario)rs.getObject("vendedor"));
         }
         ConnectionFactory.closeConnection(con, stmt);
         return l;
     }
     
     
-    public static void Update() throws SQLException{
-    
+    public static boolean Update(VendaBean c) throws SQLException{
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        String update = "UPDATE VENDA SET ID=?, vendendor=?, quantidadeCredito=?,"
+                + "dataVenda=?,horario=? WHERE ID="+c.getID();
+        stmt = con.prepareStatement(update);
+        stmt.setInt(1, c.getID());
+        stmt.setInt(2, c.getVendedor().getID());
+        stmt.setDouble(3,c.getValorVenda());
+        stmt.setDate(4,(Date)c.getDataVenda());
+        stmt.setTime(5,c.getHorarioVenda());
+        stmt.execute();
+        ConnectionFactory.closeConnection(con,stmt);
+        return true;
     }
-    
+    /*
     public static Venda setID (Venda c) throws SQLException{
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
@@ -87,5 +100,5 @@ public class VendaDAO {
         }
         ConnectionFactory.closeConnection(con, stmt);
         return c; 
-    }
+    }*/
 }

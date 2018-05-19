@@ -5,6 +5,7 @@
  */
 package modelBean;
 
+import Modelo.Usuario;
 import java.sql.Time;
 import java.util.Date;
 
@@ -14,7 +15,7 @@ import java.util.Date;
  */
 public class VendaBean {
     private int ID;
-    private UsuarioBean vendedor;
+    private Usuario vendedor;
     private Date dataVenda;
     private Time horarioVenda;
     private Double valorVenda;
@@ -31,11 +32,11 @@ public class VendaBean {
         this.ID = ID;
     }
 
-    public UsuarioBean getVendedor() {
+    public Usuario getVendedor() {
         return vendedor;
     }
 
-    public void setVendedor(UsuarioBean vendedor) {
+    public void setVendedor(Usuario vendedor) {
         this.vendedor = vendedor;
     }
 

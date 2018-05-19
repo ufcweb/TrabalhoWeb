@@ -104,7 +104,16 @@ public class LoginDAO {
         return usuario;
     }
     
-    public static void Update() throws SQLException{
-   
+    public static boolean Update(LoginBean c) throws SQLException{
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        String update = "UPDATE LOGIN SET ID=?,usuario=?,senha=? WHERE ID="+c.getId();
+        stmt = con.prepareStatement(update);
+        stmt.setInt(1,c.getId());
+        stmt.setString(2,c.getUsuario());
+        stmt.setString(3,c.getSenha());
+        stmt.execute();
+        ConnectionFactory.closeConnection(con,stmt);
+        return true;
     }
 }

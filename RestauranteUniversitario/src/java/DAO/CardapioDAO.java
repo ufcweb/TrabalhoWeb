@@ -77,26 +77,25 @@ public class CardapioDAO {
         return cardapio;
     }
     
-    public static void Update(Cardapio c, Date novaDataInicial, Date novaDataFinall) throws SQLException{
+    public static boolean Update(CardapioBean c) throws SQLException{
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        CardapioDAO.setID(c);
+        //CardapioDAO.setID(c);
         stmt = con.prepareStatement("UPDATE CARDAPIO SET dataInicial = ?, dataFinal = ? WHERE ID = ?");
-        stmt.setDate(1, novaDataInicial);
-        stmt.setDate(2, novaDataFinall);
-        stmt.setInt(3, c.getID());
-        
+        stmt.setDate(1, (Date) c.getDataInicial());
+        stmt.setDate(2, (Date) c.getDataFinal());
+        stmt.setInt(3, c.getId());
         stmt.execute();
         ConnectionFactory.closeConnection(con, stmt);
+        return true;
     }
-    
+    /*
     public static Cardapio setID(Cardapio c) throws SQLException{
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         ResultSet rs;
         String aaa = "SELECT * FROM CARDAPIO WHERE dataFinal = \""+c.getDataFinal()+"\" AND dataInicial = \""+c.getDataInicial()+"\"  ";
-        
         stmt = con.prepareStatement(aaa);
         rs = stmt.executeQuery(aaa);
         if(rs.next()){
@@ -105,5 +104,5 @@ public class CardapioDAO {
         ConnectionFactory.closeConnection(con, stmt);
         return c;
     }
-    
+    */
 }

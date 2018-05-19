@@ -12,6 +12,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import modelBean.OpcaoDiariaBean;
 
 /**
  *
@@ -62,10 +63,22 @@ public class OpcoesDiariasDAO {
         return l;
     }
     
-    public void Update() throws SQLException{
-    
+    public boolean Update(OpcaoDiariaBean c) throws SQLException{
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        String update = "UPDATE OPCOES_DIARIAS SET ID=?,dataRefeicao=?,"
+                + "diaDaSemana=?,turno=? WHERE ID="+c.getId();
+        stmt = con.prepareStatement(update);
+        stmt.setInt(1, c.getId());
+        stmt.setDate(2,(Date)c.getDataRefeicao());
+        stmt.setString(3,c.getDiaSemana());
+        stmt.setString(4,c.getTurno());
+        //FALTA ALGo == c.getOpcoesDiarias(ArrayList)
+        stmt.execute();
+        ConnectionFactory.closeConnection(con,stmt);
+        return true;
     }
-    
+    /*
     public static OpcaoDiaria setID(OpcaoDiaria c) throws SQLException{
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
@@ -77,5 +90,5 @@ public class OpcoesDiariasDAO {
         c.setID(rs.getInt("ID"));
         ConnectionFactory.closeConnection(con, stmt);
         return c;
-    }
+    }*/
 }

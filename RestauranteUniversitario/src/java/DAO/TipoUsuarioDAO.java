@@ -58,10 +58,19 @@ public class TipoUsuarioDAO {
     }
     
     
-    public static void Update() throws SQLException{
-    
+    public static boolean Update(TipoUsuarioBean c) throws SQLException{
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        String update = "UPDATE TIPO_USUARIO SET ID=?,nivelAcesso=?,preçoCredito=? WHERE ID="+c.getId();
+        stmt = con.prepareStatement(update);
+        stmt.setInt(1, c.getId());
+        stmt.setInt(2,c.getNivelAcesso());
+        stmt.setDouble(3,c.getPrecoCredito());
+        stmt.execute();
+        ConnectionFactory.closeConnection(con,stmt);
+        return true;
     }
-    
+    /*
     public static TipoUsuario setID (TipoUsuario c) throws SQLException{
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
@@ -75,5 +84,5 @@ public class TipoUsuarioDAO {
         }
         ConnectionFactory.closeConnection(con, stmt);
         return c; 
-    }
+    }*/
 }

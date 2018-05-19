@@ -5,6 +5,8 @@
  */
 package DAO;
 
+import Modelo.InformacoesNutricionais;
+import Modelo.Ingrediente;
 import Modelo.OpcaoComida;
 import Modelo.OpcaoDiaria;
 import connections.ConnectionFactory;
@@ -13,6 +15,9 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import modelBean.InformacoesNutricionaisBean;
+import modelBean.OpcaoComidaBean;
 
 /**
  *
@@ -60,7 +65,20 @@ public class OpcaoComidaDAO {
         ConnectionFactory.closeConnection(con, stmt);
         return l;
     }
-    
+    public static boolean Update(OpcaoComidaBean c /*InformacoesNutricionaisBean d, ArrayList<Ingrediente> e*/) throws SQLException{
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        //AQUI ESTA FALTADO ALGO, NAO ACHAM? A TABELA DE OPCAO NAO TEM TUDO Q É NECESSARIO
+        String update = "UPDATE OPCAO SET ID=?,nomeComida=?,categoria=? WHERE ID="+c.getId();
+        stmt = con.prepareStatement(update);
+        stmt.setInt(1, c.getId());
+        stmt.setString(2,c.getNomeComida());
+        stmt.setString(3,c.getCategoria());
+        stmt.execute();
+        ConnectionFactory.closeConnection(con,stmt);
+        return true;
+    }
+    /*
     public static OpcaoComida setID(OpcaoComida c) throws SQLException{
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
@@ -76,5 +94,5 @@ public class OpcaoComidaDAO {
         }
         ConnectionFactory.closeConnection(con, stmt);
         return c;
-    }
+    }*/
 }

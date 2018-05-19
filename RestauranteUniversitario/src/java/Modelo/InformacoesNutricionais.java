@@ -63,14 +63,15 @@ public class InformacoesNutricionais {
            this.quantidadeLipidio = quantidadeLipidio; 
         }  
     } 
-    
+
     public int getID() {
         return ID;
     }
 
-    private void setID(int ID) {
+    public void setID(int ID) {
         this.ID = ID;
     }
+    
 
     @Override
     public String toString() {

@@ -20,7 +20,8 @@ public class Cardapio {
     private Date dataFinal;
     private ArrayList<OpcaoDiaria> opcoesDiarias;
 
-    Cardapio(CardapioBean cardapio) {
+    
+    public Cardapio(CardapioBean cardapio) {
         this.setID(cardapio.getId());
         this.setDataInicial(cardapio.getDataInicial());
         this.setDataFinal(cardapio.getDataFinal());

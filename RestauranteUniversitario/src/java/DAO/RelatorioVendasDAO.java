@@ -24,14 +24,26 @@ public class RelatorioVendasDAO {
     }
     
     public void Remove() throws SQLException{
-    
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        stmt.execute();
+        
+        ConnectionFactory.closeConnection(con, stmt);
     }
     
     public void Search() throws SQLException{
-    
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        stmt.execute();
+        
+        ConnectionFactory.closeConnection(con, stmt);
     }
     
     public void Update() throws SQLException{
-    
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        stmt.execute();
+        
+        ConnectionFactory.closeConnection(con, stmt);
     }
 }

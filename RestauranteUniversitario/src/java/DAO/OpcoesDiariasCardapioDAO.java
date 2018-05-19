@@ -9,6 +9,8 @@ import connections.ConnectionFactory;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import modelBean.CardapioBean;
+import modelBean.OpcaoDiariaBean;
 
 /**
  *
@@ -36,7 +38,12 @@ public class OpcoesDiariasCardapioDAO {
     
     }
     
-    public void Update() throws SQLException{
-    
+    public boolean Update(CardapioBean c,OpcaoDiariaBean d) throws SQLException{
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        String update = "UPDATE OPCOES_DIARIAS_CARDAPIO SET ID=? WHERE ID="; //aaaaaaaaaaaaaaaa
+        stmt.execute();
+        ConnectionFactory.closeConnection(con, stmt);
+        return true;
     }
 }

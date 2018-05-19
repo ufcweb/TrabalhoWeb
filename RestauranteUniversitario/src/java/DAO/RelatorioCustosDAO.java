@@ -15,7 +15,7 @@ import java.sql.SQLException;
  * @author ValdeneidaRodrigues
  */
 public class RelatorioCustosDAO {
-    public void Add() throws SQLException{
+    public static void Add() throws SQLException{
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         stmt.execute();
@@ -23,7 +23,7 @@ public class RelatorioCustosDAO {
         ConnectionFactory.closeConnection(con, stmt);
     }
     
-    public void Remove(int ID) throws SQLException{
+    public static void Remove(int ID) throws SQLException{
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         stmt = con.prepareStatement("DELETE FROM RELATORIO_CUSTOS WHERE ID = ?");
@@ -32,11 +32,20 @@ public class RelatorioCustosDAO {
         ConnectionFactory.closeConnection(con, stmt);
     }
     
-    public void Search() throws SQLException{
-    
+    public static void Search() throws SQLException{
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        stmt.execute();
+        
+        ConnectionFactory.closeConnection(con, stmt);
     }
     
-    public void Update() throws SQLException{
-    
+    public static boolean Update() throws SQLException{
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        stmt.execute();
+        
+        ConnectionFactory.closeConnection(con, stmt);
+        return true;
     }
 }

@@ -12,6 +12,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import modelBean.OpcaoComidaBean;
+import modelBean.OpcaoDiariaBean;
 
 /**
  *
@@ -44,10 +46,20 @@ public class OpcaoOpcaoDiariasDAO {
     }
     
     public void Search() throws SQLException{
-    
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
     }
     
-    public void Update() throws SQLException{
-    
+    public boolean Update(OpcaoComidaBean c,OpcaoDiariaBean d) throws SQLException{
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        String update = "UPDATE OPCAO_OPCOES_DIARIAS SET ID=ID, ID_opcao=?, ID_opcoesDiarias=?,"
+                + "WHERE ID=ID"; //qual ID colocar, eis o problema
+        stmt = con.prepareStatement(update);
+        stmt.setInt(1,c.getId());
+        stmt.setInt(2,d.getId());
+        stmt.execute();
+        ConnectionFactory.closeConnection(con,stmt);
+        return true;
     }
 }

@@ -67,10 +67,20 @@ public class PagamentoDAO {
         return l;
     }
     
-    public static void Update() throws SQLException{
-    
+    public static boolean Update(PagamentoBean c) throws SQLException{
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        String update = "UPDATE PAGAMENTO SET ID=?, precoTotal=?,venda=?,cliente=? WHERE ID="+c.getId();
+        stmt = con.prepareStatement(update);
+        stmt.setInt(1, c.getId());
+        stmt.setDouble(2, c.getVenda().getValorVenda()); //SABER SE CORRETO??
+        stmt.setInt(3, c.getVenda().getID()); //SABER SE CORRETO??
+        stmt.setInt(4,c.getCliente().getId());//SABER SE CORRETO??
+        stmt.execute();
+        ConnectionFactory.closeConnection(con,stmt);
+        return true;
     }
-    
+    /*
     public static Pagamento setID(Pagamento c) throws SQLException{
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
@@ -84,5 +94,5 @@ public class PagamentoDAO {
         }
         ConnectionFactory.closeConnection(con, stmt);
         return c;
-    }
+    }*/
 }

@@ -14,6 +14,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Time;
+import modelBean.RelatorioBean;
 
 /**
  *
@@ -64,10 +65,20 @@ public class RelatorioDAO {
         return l;*/
     }
     
-    public static void Update() throws SQLException{
-    
+    public static boolean Update(RelatorioBean c) throws SQLException{
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        String update = "UPDATE RELATORIO SET ID=,dataCriado=?,horario=?,gerador=? WHERE ID="+c.getId();
+        stmt = con.prepareStatement(update);
+        stmt.setInt(1,c.getId());
+        stmt.setDate(2, (Date)c.getDataCriado());
+        stmt.setTime(3,c.getHorarioCriado());
+        stmt.setInt(3,c.getGerador().getId());
+        stmt.execute();
+        ConnectionFactory.closeConnection(con,stmt);
+        return true;
     }
-    
+    /*
     public static Relatorio setID(Relatorio c) throws SQLException{
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
@@ -82,5 +93,5 @@ public class RelatorioDAO {
         ConnectionFactory.closeConnection(con, stmt);
         return c; 
     }
-    
+    */
 }
